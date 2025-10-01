@@ -1,0 +1,29 @@
+SHOW DATABASES;  
+
+Để kiểm tra lệnh vừa tạo trong MySQL, bạn có thể sử dụng một số câu lệnh kiểm tra khác nhau. Dưới đây là một số câu lệnh mà bạn có thể sử dụng:
+
+SHOW DATABASES;
+
+Sử dụng câu lệnh này để xem danh sách các cơ sở dữ liệu có trong hệ thống. Trong trường hợp này, bạn có thể tìm thấy cơ sở dữ liệu mới tạo có tên là usermgt.
+
+Kiểm tra danh sách bảng trong cơ sở dữ liệu:
+
+USE usermgt;
+SHOW TABLES;
+
+Trước tiên, bạn cần sử dụng câu lệnh USE để chuyển sang cơ sở dữ liệu cụ thể (ở đây là usermgt), sau đó sử dụng SHOW TABLES để xem danh sách các bảng trong cơ sở dữ liệu này. Trong trường hợp này, bạn sẽ thấy bảng user.
+
+Kiểm tra cấu trúc của bảng:
+
+DESCRIBE user;
+
+Sử dụng câu lệnh DESCRIBE hoặc DESC để xem cấu trúc của bảng user. Nó sẽ hiển thị thông tin về các cột, kiểu dữ liệu và các thuộc tính khác của bảng.
+
+Kiểm tra dữ liệu trong bảng:
+
+SELECT * FROM user;
+
+
+ử dụng câu lệnh SELECT để xem dữ liệu trong bảng user. Điều này sẽ hiển thị toàn bộ nội dung của bảng, bao gồm cả các dòng dữ liệu bạn đã chèn vào bảng.
+
+Bạn có thể sử dụng một hoặc nhiều trong các câu lệnh trên để kiểm tra lệnh bạn đã tạo và đảm bảo rằng cơ sở dữ liệu và bảng đã được tạo thành công và dữ liệu đã được chèn vào bảng.

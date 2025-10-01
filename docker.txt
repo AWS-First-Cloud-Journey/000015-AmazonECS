@@ -1,0 +1,34 @@
+docker rm -vf $(docker ps -aq)
+
+docker rmi -f $(docker images -aq)
+
+
+sudo docker system prune -a
+
+aws-fcj-management-build
+
+aws-fcj-management
+
+aws-fcj-management-codebuild-role
+
+IMAGE_REPO_NAME
+
+aws-fcj-management
+
+IMAGE_TAG_PREFIX
+
+version-1
+
+aws/codebuild/buildspec.yaml
+
+
+
+123456789Awsfcj
+
+DB_HOST=
+DB_NAME=
+DB_USER=
+DB_PASS=
+
+mysql -u root -p
+
