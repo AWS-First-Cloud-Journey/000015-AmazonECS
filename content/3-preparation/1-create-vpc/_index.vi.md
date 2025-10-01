@@ -25,25 +25,30 @@ Xuất hiện bảng cấu hình cho VPC
 
 - Chọn **VPC and more**
 - Đặt tên `FCJ-Lab`
+- Chọn CIDR block `10.0.0.0/16`
 
 ![3.1.3](/images/3-preparation/3.1.3.png)
+
+- Cấu hình **Public Subnet** và **Private Subnet**
+
+![3.1.4](/images/3-preparation/3.1.4.png)
 
 Ở phần VPC endpoint
 
 - Chọn **None**
 - Chọn **Create VPC**
 
-![3.1.4](/images/3-preparation/3.1.4.png)
+![3.1.5](/images/3-preparation/3.1.5.png)
+![3.1.6](/images/3-preparation/3.1.6.png)
 
 Sau khi tạo xong VPC, chúng ta tiến hành kiểm tra thông tin VPC vừa tạo.
 
 - Chọn **FCJ-Lab-vpc**
 
-![3.1.5](/images/3-preparation/3.1.5.png)
 
 Xem tổng quan cấu hình của VPC
 
-![3.1.6](/images/3-preparation/3.1.6.png)
+![3.1.7](/images/3-preparation/3.1.7.png)
 
 ### Cấu hình Public Subnet
 
@@ -52,36 +57,36 @@ Xem tổng quan cấu hình của VPC
 - Chọn **Subnet**
 - Tìm kiếm **FCJ-Lab**
 
-![3.1.7](/images/3-preparation/3.1.7.png)
+![3.1.8](/images/3-preparation/3.1.8.png)
 
-Chúng ta sẽ thấy có 2 FCJ-Lab-subnet-public-1a, FCJ-Lab-subnet-public-1b
+Chúng ta sẽ thấy có 2 **FCJ-Lab-subnet-public1-us-east-1a**, **FCJ-Lab-subnet-public1-us-east-1b**
 
 Đầu tiên chúng ta sẽ setting cho FCJ-Lab-subnet-public-1a
 
-- Chọn **FCJ-lab-subnet-public-1a**
+- Chọn **FCJ-lab-subnet-public1-us-east-1a**
 - Chọn **Action**
 - Chọn **Edit subnet settings**
 
-![3.1.8](/images/3-preparation/3.1.8.png)
+![3.1.9](/images/3-preparation/3.1.9.png)
 
 Xuất hiện bảng cấu hình cho public subnet
 
 - Click chọn **Enable auto-assign public IPv4 address**
 - Chọn **Save**
 
-![3.1.9](/images/3-preparation/3.1.9.png)
+![3.1.10](/images/3-preparation/3.1.10.png)
 
 Tương tự, chúng ta sẽ setting cho FCJ-Lab-subnet-public-1b
 
-- Chọn **FCJ-Lab-subnet-public-1b**
+- Chọn **FCJ-Lab-subnet-public2-us-east-1b**
 - Chọn **Action**
 - Chọn **Edit subnet settings**
 
-![3.1.10](/images/3-preparation/3.1.10.png)
+![3.1.11](/images/3-preparation/3.1.11.png)
 
 - Click chọn **Enable auto-assign public IPv4 address**
 - Chọn **Save**
 
-![3.1.11](/images/3-preparation/3.1.11.png)
+![3.1.12](/images/3-preparation/3.1.12.png)
 
 Như vậy, chúng ta vừa cấu hình xong VPC và enable public IPv4 cho subnet public.

@@ -30,7 +30,7 @@ Vào trong thư mục mã nguồn mà chúng ta đã clone từ trước đó `a
 
 ![6.1.2.png](/images/6-docker-image/6.1.2.png)
 
-Giờ thì web server của chúng ta cũng đã sẵn sàng để chạy, tiếp theo là chạy lệnh ở bên dưới
+Giờ thì web server của chúng ta cũng đã sẵn sàng để chạy, tiếp theo là chạy lệnh ở bên dưới để build docker image của backend
 
 ```bash
 sudo docker build . -t backend-image
@@ -56,16 +56,19 @@ sudo docker run -p 5000:5000 --network my-network --name backend backend-image
 
 Giờ chúng ta sẽ phải mở một SSH Session mới để thực hiện tương tự như các bước ở trên, nhưng sẽ là triển khai Application
 
-![6.1.5.png](/images/6-docker-image/6.1.5.png)
-
 - `cd` vào trong thư mục `frontend`
+
+```bash
+cd /projects/aws-fcj-container-app/frontend
+```
+
 - Chạy lệnh như bên dưới
 
 ```bash
 sudo docker build . -t frontend-image
 ```
 
-![6.1.6.png](/images/6-docker-image/6.1.6.png)
+![6.1.5.png](/images/6-docker-image/6.1.5.png)
 
 Sau đó là tiến hành chạy Docker Container với Docker Image vừa mới tạo
 
@@ -73,4 +76,4 @@ Sau đó là tiến hành chạy Docker Container với Docker Image vừa mới
 sudo docker run -p 3000:80 --network my-network --name frontend frontend-image
 ```
 
-![6.1.7.png](/images/6-docker-image/6.1.7.png)
+![6.1.6.png](/images/6-docker-image/6.1.6.png)

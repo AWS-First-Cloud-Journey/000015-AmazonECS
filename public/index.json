@@ -1,209 +1,209 @@
 [
 {
-	"uri": "/4-configure-rds/1-create-db-subnet-group/",
+	"uri": "//localhost:1313/4-configure-rds/1-create-db-subnet-group/",
 	"title": "Create DB Subnet Group",
 	"tags": [],
 	"description": "",
 	"content": "Create DB Subnet Group Search for the keyword: RDS Select the section: Subnet groups Click: Create DB subnet group Enter the name: fcj-lab-subnet-group-db Enter the description: Subnet Group for FCJ Management Select the VPC previously created FCJ-Lab-vpc Choose the Availability Zones created along with the VPC Select 2 Subnet private Review and click Create Complete the creation of the Subnet groups "
 },
 {
-	"uri": "/6-docker-image/1-deploy/",
+	"uri": "//localhost:1313/6-docker-image/1-deploy/",
 	"title": "Deploy Application",
 	"tags": [],
 	"description": "",
 	"content": "In the previous section, 2 Deploy on Local, we manually deployed the following:\nDatabase Server Web Server End User Application As mentioned before, there were several limitations in this approach. Now, we\u0026rsquo;ll deploy the infrastructure on the cloud using Docker, eliminating the need to download and install everything manually. If you\u0026rsquo;re familiar with Docker basics (especially networking), this part will not be too challenging.\nIn the earlier 4 Configure RDS step, we already configured the Database Server using Amazon RDS, so we no longer need to worry much about maintenance, access security, or data safety. Now, in this cloud deployment, we\u0026rsquo;ll focus on deploying the remaining applications using Docker Images.\nNext, we\u0026rsquo;ll deploy using Docker Compose so you can see the difference between deploying on Local, deploying with Docker Images on the Cloud, and deploying with Docker Compose on the Cloud.\nIn the 2 Deploy on Local section, you can consider this as deploying in a development environment, but now we\u0026rsquo;ll deploy in a production or testing environment.\nDeploy the Web Server Go to the source code directory we cloned earlier, aws-fcj-container-app. Inside the backend folder, modify the contents of the .env file, specifically changing the DB_HOST variable.\nNow the web server is ready to run. Next, run the command below:\nsudo docker build . -t backend-image Before starting the web server container, we need to create a network for the containers to communicate with each other:\nsudo docker network create my-network Then, run the Docker container using the newly built Docker Image:\nsudo docker run -p 5000:5000 --network my-network --name backend backend-image Deploy the Application Now, open a new SSH session to follow the same steps, but this time, we\u0026rsquo;ll deploy the Application.\ncd into the frontend folder. Run the command below: sudo docker build . -t frontend-image Then, run the Docker container using the newly created Docker Image:\nsudo docker run -p 3000:80 --network my-network --name frontend frontend-image "
 },
 {
-	"uri": "/",
+	"uri": "//localhost:1313/",
 	"title": "Deploy Application on Docker",
 	"tags": [],
 	"description": "",
 	"content": "Deploy Application on Docker Main Content Introduction Deploy on Local Preparation Configure RDS Configure EC2 Instance Deploy use only Docker Image Deploy with Docker Compose Push Image Clean up resources "
 },
 {
-	"uri": "/7-docker-compose/1-deploy/",
+	"uri": "//localhost:1313/7-docker-compose/1-deploy/",
 	"title": "Deploying the Application",
 	"tags": [],
 	"description": "",
 	"content": "Deployment with Docker Compose Before deploying with Docker Compose, we need to stop the two Docker Containers that we ran earlier (using Ctrl + C).\nCreate a new SSH session, then navigate to the docker-compose-env directory at the root of the project and update the DB_HOST variable.\nNext, we can simply run:\ncd .. sudo docker compose -f docker-compose.app.yml up This will start the two containers just like we did in the previous section.\nOkay, it looks like our application is up and running. In the next step, we will proceed to check the application.\n"
 },
 {
-	"uri": "/5-configure-ec2/1-launch-instance/",
+	"uri": "//localhost:1313/5-configure-ec2/1-launch-instance/",
 	"title": "EC2 Instance Configuration",
 	"tags": [],
 	"description": "",
 	"content": "Launching an Amazon EC2 Instance ℹ️ Information: Amazon Elastic Compute Cloud (Amazon EC2) provides resizable compute capacity in the AWS Cloud. Using EC2 instances eliminates the need to invest in hardware upfront, allowing you to develop and deploy applications faster.\nIn the AWS Management Console:\nSearch for and select EC2 in the search bar Creating Your EC2 Instance In the EC2 dashboard:\nSelect Instances from the left navigation pane Click on Launch Instances button Name your instance FCJ-Lab-my-server 💡 Pro Tip: Use descriptive naming conventions that include environment, project, and purpose to make resource management easier as your infrastructure grows.\nConfiguring Amazon Machine Image (AMI) Choose the operating system Ubuntu Select Ubuntu Server 24.04 LTS AMI ℹ️ Information: Ubuntu Server 24.04 LTS provides long-term support until 2029, ensuring stability and security updates for your production workloads.\nSelecting Instance Type and Authentication Instance type t3.medium (2 vCPU, 4 GiB memory) Select Create new key pair 🔒 Security Note: Key pairs are essential for secure SSH access to your instance. Store the private key file securely and never share it. The private key cannot be recovered if lost.\nKey pair name FCJ-Lab-key Select Create key pair Network and Security Configuration Scroll down to the network settings section:\nVPC: FCJ-Lab-vpc Subnet: Select the public subnet Auto-assign public IP: Enable Select Select existing security group Choose FCJ-Lab-SG ⚠️ Warning: Placing EC2 instances in public subnets exposes them directly to the internet. Ensure your security group rules are properly configured to allow only necessary traffic.\nClick Launch Instance Attaching IAM Role for Amazon ECR Access ℹ️ Information: Identity and Access Management (IAM) roles allow your EC2 instance to securely access other AWS services without embedding credentials in your application code.\nIn the EC2 instance details page:\nSelect your EC2 instance FCJ-Lab-my-server Click Actions Navigate to Security Select Modify IAM role Choose the IAM role CustomeRWECRRole Click Update IAM role 💡 Pro Tip: The CustomeRWECRRole provides read and write access to Amazon Elastic Container Registry (ECR), enabling your instance to pull and push container images without configuring explicit credentials.\n"
 },
 {
-	"uri": "/2-deploy-local/1-install-dependencies/",
+	"uri": "//localhost:1313/2-deploy-local/1-install-dependencies/",
 	"title": "Install Dependencies",
 	"tags": [],
 	"description": "",
-	"content": " In this article, we will practice on a Windows machine.\nInstall NodeJS For better understanding, you should follow the video below to install NodeJS on your personal computer.\nInstall MySQL Community Similarly, watch this video to install MySQL:\nSome notes when installing MySQL:\nYou should install both MySQL Client and MySQL Server for easier testing. Also, install MySQL Workbench and MySQL Shell, which is a database management system similar to Microsoft SQL Server Management Studio for Microsoft SQL Server. You may need them in some future projects. In MySQL, there are two types of users: Root User and other users, each with different roles. Always remember the password for the Root User, and add a new account when installing MySQL Server. Results Once NodeJS is installed, npm will also be included in the package. Check whether NodeJS and npm have been successfully installed using the following two commands:\nnode -v npm -v Using MySQL Shell Search for MySQL Shell in the Windows search bar, then select MySQL Shell.\nWhen opened, you will see the following interface:\nType \\sql to switch the Input Mode to MySQL.\nThen, connect to the MySQL Server.\nIf you didn’t create a user during the MySQL installation, you can connect to the MySQL Server using the Root User. In that case, the connection string will be root@localhost, and don\u0026rsquo;t forget to enter the Root User password you set during installation.\nUse the SHOW DATABASES; command to check the result again.\nIf you get this result, it means you have installed this part correctly and can proceed to the next section.\n"
+	"content": "\rIn this article, we will practice on a Windows machine.\nInstall NodeJS For better understanding, you should follow the video below to install NodeJS on your personal computer.\nInstall MySQL Community Similarly, watch this video to install MySQL:\nSome notes when installing MySQL:\nYou should install both MySQL Client and MySQL Server for easier testing. Also, install MySQL Workbench and MySQL Shell, which is a database management system similar to Microsoft SQL Server Management Studio for Microsoft SQL Server. You may need them in some future projects. In MySQL, there are two types of users: Root User and other users, each with different roles. Always remember the password for the Root User, and add a new account when installing MySQL Server. Results Once NodeJS is installed, npm will also be included in the package. Check whether NodeJS and npm have been successfully installed using the following two commands:\nnode -v npm -v Using MySQL Shell Search for MySQL Shell in the Windows search bar, then select MySQL Shell.\nWhen opened, you will see the following interface:\nType \\sql to switch the Input Mode to MySQL.\nThen, connect to the MySQL Server.\nIf you didn’t create a user during the MySQL installation, you can connect to the MySQL Server using the Root User. In that case, the connection string will be root@localhost, and don\u0026rsquo;t forget to enter the Root User password you set during installation.\nUse the SHOW DATABASES; command to check the result again.\nIf you get this result, it means you have installed this part correctly and can proceed to the next section.\n"
 },
 {
-	"uri": "/1-introduction/",
+	"uri": "//localhost:1313/1-introduction/",
 	"title": "Introduction",
 	"tags": [],
 	"description": "",
 	"content": "Overview In this workshop, we will practice deploying applications to Docker Containers, from building to managing the entire operation process. You will explore how to leverage the power of popular tools and services in a containerized environment such as Docker Hub, Nginx, Amazon ECR, Amazon RDS, and Amazon EC2.\nThe services used in this workshop include:\nDocker Hub: This is the most popular Docker image repository service, allowing you to easily store and share application images, enabling quick deployment anywhere.\nNginx: One of the most powerful web servers, often used as a reverse proxy and load balancer, optimizing application distribution and ensuring high scalability.\nAmazon Elastic Container Registry (ECR): ECR is a secure Docker image repository service, tightly integrated with AWS services, enabling you to manage, store, and deploy Docker images directly from the cloud environment.\nAmazon Relational Database Service (RDS): RDS is a fully managed database service that automates maintenance tasks and optimizes database performance. In this workshop, you will learn how to integrate your Docker application with RDS, ensuring high performance and strong security.\nAmazon EC2: EC2 provides flexible and powerful cloud servers for deploying, running containers, and managing your containerized applications on AWS infrastructure.\nWorkflow User Request (Client-Side): The user initiates a request from their browser or device, such as accessing a website or application. This request is routed through the Internet, where it begins the journey toward your application infrastructure. Internet Gateway (AWS Infrastructure): The request first passes through the Internet Gateway in your cloud infrastructure, typically hosted on AWS. The Internet Gateway serves as a link between the public internet and your Virtual Private Cloud (VPC). It forwards incoming traffic to the Nginx server within your infrastructure. Nginx (Reverse Proxy \u0026amp; Load Balancer): Nginx receives the request and acts as a reverse proxy to direct traffic to the appropriate application containers. Nginx is responsible for routing the request either to the Frontend container (for handling the user interface and client-side logic) or the Backend container (which processes business logic and interacts with the database). Frontend and Backend Containers: The Frontend container (often built with frameworks like React, Vue.js, etc.) handles the user interface and presentation layer of the application. It sends requests to the backend for any server-side logic or data retrieval. The Backend container (often built with Node.js, Python, etc.) processes the request, applies business logic, and makes a call to the database for data retrieval or storage. Amazon RDS (Database Layer): The backend container communicates with Amazon RDS (Relational Database Service), where the application’s data is stored. The backend retrieves the necessary data from RDS, such as user information, quiz results, or any other database interactions required by the application. Responding to the User: Once the backend retrieves the data from RDS and processes the request, it sends the response back to the frontend container via Nginx. The frontend renders the response and sends it back to the user, completing the cycle. Pushing Docker Images to Docker Hub and Amazon ECR: Separately from the request-response cycle, when you make changes to your application or infrastructure, the updated Docker images (for both frontend and backend) are pushed to Docker Hub or Amazon ECR (Elastic Container Registry). These repositories securely store the images, making them available for future deployments. This allows you to easily redeploy your updated containers on EC2 instances or other environments. "
 },
 {
-	"uri": "/8-push-image/1-use-ecr/",
+	"uri": "//localhost:1313/8-push-image/1-use-ecr/",
 	"title": "Using ECR",
 	"tags": [],
 	"description": "",
 	"content": "Create ECR Repository for Frontend Image Search for Amazon Elastic Container Registry Select Create We will create 2 different repositories to store Docker Images. First is to create a repository to store images for the frontend app.\nRepository name: fcjresbar-fe.\nImage tag mutability: select Mutable.\nEncryption configuration: leave it as default.\nClick Create to create Create ECR Repository for Backend Image Similarly, now we will create for Backend Image\nWith the following information:\nRepository name: fcjresbar-be.\nImage tag mutability: select Mutable.\nEncryption configuration: leave it as default.\nClick Create to create We need to create each repository for each different application to manage the version of Docker images more easily, especially for future CI/CD implementation.\nInstall AWS CLI By default (10/15/2024), AWS CLI is not installed by default in Ubuntu.\nFirst we need to download unzip first.\nsudo apt install unzip Then we will use the commands below to install AWS CLI.\ncurl \u0026#34;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\u0026#34; -o \u0026#34;awscliv2.zip\u0026#34; unzip awscliv2.zip sudo ./aws/install Push Frontend Image to ECR Re-enter ECR Console\nSelect fcjresbar-fe Press View push commands A dialog box will pop up and we can see a series of commands.\nBack to EC2 Instance, we need to use Root User to be able to log in to ECR with Docker.\nIn AWS console of Push commands for fcjresbar-fe\nSelect the first command to authenticate to log in to Amazon Elastic Container Registry (ECR) from your local Docker environment. Before that, make sure you have configured AWS Configure Because when a user uses sudo to log in to ECR with Docker, the credential is saved in the HOME Dir of that user. But when you execute the push or pull command, it will see the credential in Root instead of in HOME Dir which was saved when logging in before.\nIn the previous sections, we have created Images for each application, so now we just need to re-tag them appropriately and push them to the corresponding Registry.\ndocker image ls In the AWS console of Push commands for fcjresbar-fe\nSelect the 3rd command line to perform tagging, replace the image resource names you created earlier General format \u0026lt;Account_ID\u0026gt;.dkr.ecr.\u0026lt;region\u0026gt;.amazonaws.com/\u0026lt;Repository_Name\u0026gt;:\u0026lt;Name_tag\u0026gt;\nAfter creating, push the Image to ECR\nIn the AWS console of Push commands for fcjresbar-fe\nSelect the push command Push Backend Image to ECR Similarly, we will also view the push command of fcjresbar-be, remember to copy the login command. But logout first\nLog back in with the copied login command\nSimilarly, tag the image appropriately\nPush the image to ECR\nCheck the result If successful, go to ECR Console, go to each repositories in turn, we can see the result here.\n"
 },
 {
-	"uri": "/3-preparation/1-create-vpc/",
+	"uri": "//localhost:1313/3-preparation/1-create-vpc/",
 	"title": "VPC Configuration",
 	"tags": [],
 	"description": "",
 	"content": "VPC Configuration In the AWS console interface, perform the following:\nSearch for and select VPC In the VPC management interface:\nSelect Your VPC Click on Create VPC The VPC configuration panel appears:\nChoose VPC and more Name it FCJ-Lab In the VPC endpoint section:\nSelect None Click on Create VPC After creating the VPC, we will check the information of the newly created VPC:\nSelect FCJ-Lab-vpc View the overview of the VPC configuration:\nPublic Subnet Configuration In the VPC management interface, scroll down in the left sidebar:\nSelect Subnet Search for FCJ-Lab You will see two subnets: FCJ-Lab-subnet-public-1a and FCJ-Lab-subnet-public-1b.\nFirst, we will configure FCJ-Lab-subnet-public-1a:\nSelect FCJ-Lab-subnet-public-1a Click on Action Choose Edit subnet settings The public subnet configuration panel appears:\nCheck Enable auto-assign public IPv4 address Click Save Similarly, we will configure FCJ-Lab-subnet-public-1b:\nSelect FCJ-Lab-subnet-public-1b Click on Action Choose Edit subnet settings Check Enable auto-assign public IPv4 address Click Save Thus, we have configured the VPC and enabled public IPv4 for the public subnets.\n"
 },
 {
-	"uri": "/2-deploy-local/2-deploy-application/",
+	"uri": "//localhost:1313/2-deploy-local/2-deploy-application/",
 	"title": "Deploy Application",
 	"tags": [],
 	"description": "",
-	"content": " To complete this part, you must have Git installed beforehand.\nDownload Source Code First,\nCreate a folder with any name (I\u0026rsquo;ll call it workspace). Right-click and select Open in Terminal. Clone the application\u0026rsquo;s source code from GitHub to your machine.\nINSERT IMAGE HERE\nREPLACE HERE\nAnd here is the result:\nAdd Data To add data:\nGo to the database folder inside the source code folder you downloaded. Copy the path from the Browse bar in Windows. Paste the path into MySQL Shell, adding the script name (init.sql) to the pasted string. Use MySQL Shell to connect to MySQL Server. The connection steps are similar to the previous section. In the project folder, you\u0026rsquo;ll notice a database folder containing SQL scripts to create the database, tables, constraints, and add data. In this step, we\u0026rsquo;ll use the source command to run the script.\nRun some queries to verify:\nREPLACE HERE\nDeploy Web Server After the data is successfully added, we will start the Web Server. First,\nGo into the backend folder and modify the contents of the .env file. REPLACE HERE\nThen open the Terminal in this folder. Proceed to install the NPM packages to run the server. REPLACE HERE\nNext, start the server:\nREPLACE HERE\nAnd the Web Server has successfully started.\nDeploy Client Application Next, I\u0026rsquo;ll deploy the client application:\nGo to the frontend folder. Open the Terminal and install the NPM packages. REPLACE HERE\nBefore running the application, I need to update the content in the vite.config.js file, as shown in the sample configuration below:\nREPLACE HERE\nThe above configuration sets up a proxy for Vite, meaning that when a request URL contains /api, it will be replaced by the target string.\nRun the application:\nnpm run dev After this section, we\u0026rsquo;ll check the deployment results.\nConclusion From the deployment steps from the beginning of the Local Deployment section to this point, we can draw some conclusions:\nManual deployment is exhausting, requiring a lot of installations. In the next section, we will use Linux and Docker to deploy the entire application. If the application is developed and deployed on Windows, switching to other platforms may be difficult. If we deploy this application to a real environment with this strategy and architecture, the system won\u0026rsquo;t be highly reliable. It doesn\u0026rsquo;t ensure the \u0026ldquo;environment\u0026rdquo; for the applications. When deploying this way, the applications share the same resources, and with other software on the machine. Sometimes errors from other software or applications may affect our system. "
+	"content": "\rTo complete this part, you must have Git installed beforehand.\nDownload Source Code First,\nCreate a folder with any name (I\u0026rsquo;ll call it workspace). Right-click and select Open in Terminal. Clone the application\u0026rsquo;s source code from GitHub to your machine.\nINSERT IMAGE HERE\nREPLACE HERE\nAnd here is the result:\nAdd Data To add data:\nGo to the database folder inside the source code folder you downloaded. Copy the path from the Browse bar in Windows. Paste the path into MySQL Shell, adding the script name (init.sql) to the pasted string. Use MySQL Shell to connect to MySQL Server. The connection steps are similar to the previous section. In the project folder, you\u0026rsquo;ll notice a database folder containing SQL scripts to create the database, tables, constraints, and add data. In this step, we\u0026rsquo;ll use the source command to run the script.\nRun some queries to verify:\nREPLACE HERE\nDeploy Web Server After the data is successfully added, we will start the Web Server. First,\nGo into the backend folder and modify the contents of the .env file. REPLACE HERE\nThen open the Terminal in this folder. Proceed to install the NPM packages to run the server. REPLACE HERE\nNext, start the server:\nREPLACE HERE\nAnd the Web Server has successfully started.\nDeploy Client Application Next, I\u0026rsquo;ll deploy the client application:\nGo to the frontend folder. Open the Terminal and install the NPM packages. REPLACE HERE\nBefore running the application, I need to update the content in the vite.config.js file, as shown in the sample configuration below:\nREPLACE HERE\nThe above configuration sets up a proxy for Vite, meaning that when a request URL contains /api, it will be replaced by the target string.\nRun the application:\nnpm run dev After this section, we\u0026rsquo;ll check the deployment results.\nConclusion From the deployment steps from the beginning of the Local Deployment section to this point, we can draw some conclusions:\nManual deployment is exhausting, requiring a lot of installations. In the next section, we will use Linux and Docker to deploy the entire application. If the application is developed and deployed on Windows, switching to other platforms may be difficult. If we deploy this application to a real environment with this strategy and architecture, the system won\u0026rsquo;t be highly reliable. It doesn\u0026rsquo;t ensure the \u0026ldquo;environment\u0026rdquo; for the applications. When deploying this way, the applications share the same resources, and with other software on the machine. Sometimes errors from other software or applications may affect our system. "
 },
 {
-	"uri": "/2-deploy-local/",
+	"uri": "//localhost:1313/2-deploy-local/",
 	"title": "Deploy on Local",
 	"tags": [],
 	"description": "",
 	"content": "To understand why we should deploy applications on Docker containers using Docker as the foundation, instead of using the personal computer\u0026rsquo;s platform as the base.\nFor the end-user\u0026rsquo;s application to work (such as adding or editing information), we need one or more servers to handle user requests. In this case, one or more servers will use the resources of the host machine.\nIn this section, we will deploy a sample application on a personal computer to observe and evaluate.\nContent Install Dependencies Deploy Application Test Application "
 },
 {
-	"uri": "/5-configure-ec2/2-install-required-libraries/",
+	"uri": "//localhost:1313/5-configure-ec2/2-install-required-libraries/",
 	"title": "Install required libraries",
 	"tags": [],
 	"description": "",
 	"content": "First, we need to connect to the EC2 instance that we just created using SSH. Then, run the following commands to update the system and its packages.\nsudo apt update -y sudo apt upgrade -y Install Docker Next, we need to install Docker to deploy applications later. Use the following commands to install Docker:\n# Add Docker\u0026#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates curl sudo install -m 0755 -d /etc/apt/keyrings sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc sudo chmod a+r /etc/apt/keyrings/docker.asc # Add the repository to Apt sources: echo \\ \u0026#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \\ $(. /etc/os-release \u0026amp;\u0026amp; echo \u0026#34;$VERSION_CODENAME\u0026#34;) stable\u0026#34; | \\ sudo tee /etc/apt/sources.list.d/docker.list \u0026gt; /dev/null sudo apt-get update Then proceed to install the necessary Docker libraries.\nsudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin Install MySQL Client To add data to the RDS instance, we need to install the MySQL Client. Use the following command:\nsudo apt install mysql-client Check the results Docker Test\nMySQL Client Test\nFinally, to clone the source code, we need Git. Check if Git is installed:\nEverything is now set up correctly.\nClone the Project from GitHub Before proceeding to the next steps, we need to clone the project source code.\ngit clone https://github.com/AWS-First-Cloud-Journey/aws-fcj-container-app.git "
 },
 {
-	"uri": "/4-configure-rds/2-launch-rds-instance/",
+	"uri": "//localhost:1313/4-configure-rds/2-launch-rds-instance/",
 	"title": "Launch RDS Instance",
 	"tags": [],
 	"description": "",
 	"content": "Create RDS Instance Go to the section: Databases Select: Create Database Choose the method: Standard create Select the database type: MySQL Select the template: Dev/Test Choose Multi-AZ DB instance This section can be adjusted according to your needs to optimize costs, but there are some limitations, so it\u0026rsquo;s important to research carefully.\nEnter the DB instance name: fcj-lab-rds-instance Enter the username: admin Enter the password: letmein12345 Adjust configurations as needed Connect to the previously created VPC Select the Subnet created in the previous section Choose the Security group created for the DB The following sections can be left as default or configured based on your preferences Review all configurations carefully and click Create Complete the creation of the DB instance, it will take about 15 minutes to become Available "
 },
 {
-	"uri": "/3-preparation/2-create-sg/",
+	"uri": "//localhost:1313/3-preparation/2-create-sg/",
 	"title": "Security Group Configuration",
 	"tags": [],
 	"description": "",
 	"content": "Security Group Configuration for EC2 In the EC2 management interface, in the left selection menu:\nSelect Security Groups Click on Create security group Configure the Security Group:\nIn the Basic details section: Security group name: FCJ-Lab-sg-public Description: Security group for FCJ Lab VPC: FCJ-Lab-vpc In the Inbound rules section, add the following rules: Type: SSH, Source: Anywhere-IPv4 Type: HTTP, Source: Anywhere-IPv4 Type: HTTPS, Source: Anywhere-IPv4 Type: Custom TCP, Port range: 3000, Source: Anywhere-IPv4 For the Outbound rules, we will leave it as default. Click on Create security group. Security Group Configuration for Database Instance Similar to the steps for creating a security group for EC2:\nSelect Security Groups Click on Create security group Configure the Security Group:\nIn the Basic details section: Security group name: FCJ-Lab-sg-db Description: Security group for RDS database instance VPC: FCJ-Lab-vpc In the Inbound rules section: Select Type: MYSQL/Aurora Source: Select FCJ-Lab-sg For the Outbound rules:\nLeave it as default. Click on Create security group.\n"
 },
 {
-	"uri": "/6-docker-image/2-test-app/",
+	"uri": "//localhost:1313/6-docker-image/2-test-app/",
 	"title": "Test Application",
 	"tags": [],
 	"description": "",
 	"content": "Deployment Results Go back to the EC2 Console, copy the Public IPv4 address of the EC2 instance we\u0026rsquo;ve been working on, and then open a browser and enter the URL as follows:\nhttp://public-dns-of-your-ec2:3000 NginX is running on port 80 inside the container. When we make a request to the above URL, the container will map from port 3000 to 80.\nTry logging in with a user account. If the login is successful, it means our application is running properly and will redirect us to the main interface.\nOpen some additional pages.\nSo, we\u0026rsquo;ve successfully deployed the application using Docker Images. In the next section, we\u0026rsquo;ll use a different approach by deploying the application with Docker Compose. This solution will make it easier to deploy and manage containers.\n"
 },
 {
-	"uri": "/7-docker-compose/2-test-app/",
+	"uri": "//localhost:1313/7-docker-compose/2-test-app/",
 	"title": "Testing the Application",
 	"tags": [],
 	"description": "",
 	"content": "Testing the application Similar to the previous testing step, I will go back to the DNS. You should see the homepage of the application.\nNow, log into the app as the user Admin.\nAfter that, we will be redirected to the main page. Let\u0026rsquo;s try accessing a few other pages.\n"
 },
 {
-	"uri": "/8-push-image/2-use-docker-hub/",
+	"uri": "//localhost:1313/8-push-image/2-use-docker-hub/",
 	"title": "Use Docker Hub",
 	"tags": [],
 	"description": "",
-	"content": "Create a repository on Docker Hub Go to Docker Hub, which has been prepared, and create a repository there. Select Create repository Choose the Namespace as your account. Enter the repository name: fcjresbar-fe Enter the description: Frontend Image of FCJ Resbar Select public Review and select Create Successfully created a repository on Docker Hub. Similarly, create a repository for the backend image.\nChoose the Namespace as your account. Enter the repository name: fcjresbar-be. Enter the description: Backend Image of FCJ Resbar. Select public. Review and select Create. Results:\nPush frontend image to Docker Hub Now we are ready to push the images to their respective repositories.\nLogout and log in to Docker Hub. Make sure to log in with the correct account and password that you used to create the repositories in the previous step.\nChange the tag for the frontend image.\nPush the frontend image to Docker Hub.\nPush backend image to Docker Hub Similarly, we will quickly tag and push the backend image to Docker Hub.\nResults After pushing, we can see that the images have been pushed to their respective repositories.\n"
+	"content": "Create a repository on Docker Hub Go to Docker Hub, which has been prepared, and create a repository there. Select Create repository Choose the Namespace as your account. Enter the repository name: fcjresbar-fe Enter the description: Frontend Image of FCJ Resbar Select public Review and select Create Successfully created a repository on Docker Hub. Similarly, create a repository for the backend image.\nChoose the Namespace as your account. Enter the repository name: fcjresbar-be. Enter the description: Backend Image of FCJ Resbar. Select public. Review and select Create. Results:\nPush frontend image to Docker Hub Now we are ready to push the images to their respective repositories.\nLogout and log in to Docker Hub. Make sure to log in with the correct account and password that you used to create the repositories in the previous step.\nChange the tag for the frontend image.\nPush the frontend image to Docker Hub.\n#### Push backend image to Docker Hub\rSimilarly, we will quickly tag and push the backend image to Docker Hub.\nResults After pushing, we can see that the images have been pushed to their respective repositories.\n"
 },
 {
-	"uri": "/5-configure-ec2/3-add-data-testing/",
+	"uri": "//localhost:1313/5-configure-ec2/3-add-data-testing/",
 	"title": "Add Database for Testing",
 	"tags": [],
 	"description": "",
 	"content": "Preparation To ensure the application works, we need to load data into the RDS instance.\nWe will use the SQL script in aws-fcj-container-app/database to insert the data. To do this, first navigate to the aws-fcj-container-app/database directory to get the script path:\ncd aws-fcj-container-app/database echo $PWD/init.sql Copy the path as we will use it later.\nConnect to RDS Now, we\u0026rsquo;ll use the MySQL client installed earlier to connect to the RDS instance. First, go to the RDS Console:\nSelect the RDS instance you created earlier. Copy the endpoint. Use the following command to connect:\nmysql -h \u0026#34;rds-endpoint\u0026#34; -u admin -p Next, we will use the source /home/ubuntu/aws-fcj-container-app/database/init.sql command to run the SQL script. Paste the script path copied earlier and execute the command.\nVerify Results Check the database: SHOW DATABASES\nCheck the data: USE fcjresbar then SELECT * FROM fcjresbar\n"
 },
 {
-	"uri": "/3-preparation/3-create-role/",
+	"uri": "//localhost:1313/3-preparation/3-create-role/",
 	"title": "Create IAM Roles for ECR Access",
 	"tags": [],
 	"description": "",
 	"content": "Policy Configuration In the AWS Console interface:\nSearch for and select IAM In the right selection menu:\nSelect Policy Click on Create Policy In the Policy Editor:\nSearch for and select Elastic Container Registry Click Next A rule selection panel appears:\nIn the List section: Select DescribeImage Select ListImages In the Read section: Select BatchGetImage Select DescribeRegistry Select DescribeRepositories Select GetAccountSetting Select GetAuthorizationToken In the Resources section: Select Specific Select Any in this account Click Next In the Policy details section:\nPolicy name: ReadECRRepositoryContent Description: Allow pull images, describe repositories Click Create policy Similarly, we will create an additional policy for writing to ECR:\nClick Create Policy A rule selection panel appears:\nIn the Read section: Select BatchCheckLayerAvailability Select GetAuthorizationToken In the Write section: Select CompleteLayerUpload Select InitialLayerUpload Select PutImage Select UploadLayerPart In the Resources section: Select Any in this account Click Next The Policy details panel appears:\nPolicy name: WriteECRRepositoryContent Description: Allow push and delete images Click Create policy Create Role for ECR In the EC2 management interface:\nSelect Roles Click on Create role Select AWS service Choose EC2 Click Next Filter by Type: Customer managed Select the two policies we just created Click Next In the Role details section:\nRole name: CustomRWECRRole Description: Custom Read and Write role for ECS Click Create role "
 },
 {
-	"uri": "/3-preparation/",
+	"uri": "//localhost:1313/3-preparation/",
 	"title": "Preparation",
 	"tags": [],
 	"description": "",
 	"content": "Preparation In this section, we will configure the VPC, Security Group for EC2 and RDS database instance, crate role for ECR.\nConfigure VPC Create Security Group Configure Role for ECR Log in to Docker Hub "
 },
 {
-	"uri": "/2-deploy-local/3-test-app/",
+	"uri": "//localhost:1313/2-deploy-local/3-test-app/",
 	"title": "Test Application",
 	"tags": [],
 	"description": "",
 	"content": "Check Deployment Results First, we need to go to the URL that was opened during the previous deployment: http://localhost:5173. At that point, you will see the following interface:\nUse one of the following accounts to log in:\nUser: email user@example.com; password 123456. Admin: email admin@example.com; password 123456. After logging in, you will see the content on the web as follows:\nNavigate through some other pages to see more results:\nOk, this proves that our local system has been successfully deployed. In the next section, we will prepare to deploy to AWS Cloud using Docker.\n"
 },
 {
-	"uri": "/4-configure-rds/",
+	"uri": "//localhost:1313/4-configure-rds/",
 	"title": "Launch RDS Instance",
 	"tags": [],
 	"description": "",
 	"content": "Overview of RDS Amazon RDS is a managed database service on AWS, where we can only access and manage at the RDBMS level, not at the operating system level. It includes Aurora, MySQL, PostgreSQL, MSSQL, Oracle, and MariaDB. Amazon RDS provides the following features:\nAutomated backups (including logs and database – up to 35 days). Read Replica creation to serve read workloads (reporting). Read Replicas can be detached and promoted to a Primary node. Operates with automatic failover, Primary/Standby mechanisms, also known as Multi-AZ. RDS is commonly used for OLTP applications. RDS provides data encryption features both at rest and in transit. RDS is also protected by firewall features similar to EC2 (Security Group and NACL). Scaling (changing instance size). Automatic storage scaling (Storage Auto Scale). Content Create DB Subnet Group Launch RDS Instance "
 },
 {
-	"uri": "/3-preparation/4-login-docker-hub/",
+	"uri": "//localhost:1313/3-preparation/4-login-docker-hub/",
 	"title": "Login to Docker Hub",
 	"tags": [],
 	"description": "",
 	"content": "Login to Docker Hub Access https://hub.docker.com/\nLog in to your Docker Hub account. "
 },
 {
-	"uri": "/5-configure-ec2/",
+	"uri": "//localhost:1313/5-configure-ec2/",
 	"title": "Configuring EC2 Instance",
 	"tags": [],
 	"description": "",
 	"content": "Configuring EC2 Instance In this section, we will create an EC2 server, install the necessary libraries, and add data to the previously created database for an Administrator Group.\nLaunch EC2 Instance Add Data for Testing "
 },
 {
-	"uri": "/6-docker-image/",
+	"uri": "//localhost:1313/6-docker-image/",
 	"title": "Deploy use only Docker Image",
 	"tags": [],
 	"description": "",
 	"content": "Content In previous section, we added more libraries, packages successfully. Now we use those dependencies to do something in this section.\nDeploy Application Test Application "
 },
 {
-	"uri": "/7-docker-compose/",
+	"uri": "//localhost:1313/7-docker-compose/",
 	"title": "Deploy with Docker Compose",
 	"tags": [],
 	"description": "",
 	"content": "Deploy application with Docker Compose Deploy Application Test Application "
 },
 {
-	"uri": "/8-push-image/",
+	"uri": "//localhost:1313/8-push-image/",
 	"title": "Push Image",
 	"tags": [],
 	"description": "",
 	"content": "Push Docker Image on Amazon ECR Amazon Elastic Container Registry (ECR) is a Docker container image management service integrated with Amazon Web Services (AWS). Pushing an image to ECR is a crucial part of the container deployment process on AWS, allowing images to be stored in a secure environment and easily integrated with other services like ECS (Elastic Container Service) or EKS (Elastic Kubernetes Service).\nPush Docker Image on Docker Hub Docker Hub is a popular public container registry that allows developers to store and distribute Docker images globally. When you push an image to Docker Hub, it facilitates sharing your containerized applications with the community, other development teams, or for personal use.\nContent Use ECR Use Docker Hub "
 },
 {
-	"uri": "/9-clean-up/",
+	"uri": "//localhost:1313/9-clean-up/",
 	"title": "Clean Up Resources",
 	"tags": [],
 	"description": "",
 	"content": "Resource Cleanup Overview ℹ️ Information: Proper resource cleanup in AWS is critical for cost management and security. This section guides you through terminating all resources created during this workshop.\n⚠️ Warning: Failure to properly clean up resources may result in unexpected charges to your AWS account.\n💡 Pro Tip: Consider using AWS Resource Groups or AWS CloudFormation for easier resource management and cleanup in future projects.\nNote: In the next section, we will explore Amazon Elastic Container Service (Amazon ECS) and implement a CI/CD Pipeline, so we can skip some parts in the resource cleanup.\nClean Up Amazon Elastic Container Registry (ECR) ℹ️ Information: Amazon ECR is a fully managed container registry service that makes it easy to store, manage, and deploy container images.\nFollow these steps to remove your ECR repositories:\nNavigate to the AWS Management Console Search for and select Elastic Container Registry Locate the repositories created during this workshop: Select fcjresbar-be Click Delete Confirm the deletion when prompted Repeat the process for the frontend repository: Select fcjresbar-fe Click Delete Confirm the deletion when prompted Clean Up Amazon EC2 Resources ℹ️ Information: Amazon EC2 provides resizable compute capacity in the AWS Cloud. Terminating unused instances prevents unnecessary charges.\nNavigate to the Amazon EC2 console Search for and select EC2 Select the EC2 instance created during this workshop (FCJ-Lab-my-server) From the Instance state menu, select Terminate instance Delete Security Groups 🔒 Security Note: Security groups act as virtual firewalls to control inbound and outbound traffic. Always clean up unused security groups to maintain a secure environment.\nNavigate to the Amazon VPC console Search for and select VPC In the left navigation panel: Select Security Groups Choose FCJ-Lab-sg-private Click Actions Select Delete security groups Similarly, for the public security group: Select Security Groups Choose FCJ-Lab-sg-public Click Actions Select Delete security groups Delete IAM Role 🔒 Security Note: IAM roles provide permissions to AWS services and should be cleaned up when no longer needed to follow the principle of least privilege.\nNavigate to the AWS Identity and Access Management (IAM) console Search for and select IAM In the left navigation panel: Select Roles Search for customRWECRRole Select the role Click Delete Confirm by entering the role name customRWECRRole Click Delete Clean Up Amazon VPC ℹ️ Information: Amazon VPC is the networking layer for your AWS resources. Deleting a VPC also removes its associated subnets, route tables, and gateway attachments.\nNavigate to the VPC console Search for and select VPC Select VPC-Lab-vpc Click Actions Select Delete VPC 💡 Pro Tip: Before deleting a VPC, ensure all resources within it have been terminated, including EC2 instances, RDS databases, and load balancers.\nClean Up Amazon RDS ℹ️ Information: Amazon RDS makes it easy to set up, operate, and scale relational databases in the cloud. Properly terminating RDS instances is important to avoid ongoing charges.\nNavigate to the Amazon RDS console Search for and select RDS Select Databases Choose the RDS instance created during this workshop Click Actions Select Delete In the confirmation dialog: Check the acknowledgment box regarding automated backups and snapshots Enter delete me in the field Click Delete ⚠️ Warning: Deleting an RDS instance is permanent. Ensure you\u0026rsquo;ve created any necessary final snapshots if you need to preserve your data.\n"
 },
 {
-	"uri": "/categories/",
+	"uri": "//localhost:1313/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "/tags/",
+	"uri": "//localhost:1313/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",

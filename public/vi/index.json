@@ -1,209 +1,209 @@
 [
 {
-	"uri": "/vi/",
+	"uri": "//localhost:1313/vi/",
 	"title": "Triển khai ứng dụng trên Docker với AWS",
 	"tags": [],
 	"description": "",
 	"content": "Triển khai ứng dụng trên Docker với AWS ℹ️ Thông tin: Tài liệu này hướng dẫn triển khai ứng dụng trên Docker sử dụng các dịch vụ AWS như EC2, RDS, và Amazon ECR. Được cập nhật với các tính năng mới nhất của AWS cho đến năm 2025.\nNội dung chính Giới thiệu Triển khai ở máy cục bộ (Local) Các bước chuẩn bị Cấu hình Amazon RDS Cấu hình Amazon EC2 Instance Triển khai bằng Docker image Triển khai bằng Docker Compose Đẩy image lên Amazon ECR Dọn dẹp tài nguyên AWS 💡 Mẹo hữu ích: Khi triển khai ứng dụng Docker trên AWS, bạn nên tận dụng các dịch vụ quản lý container như Amazon ECS hoặc Amazon EKS cho môi trường sản xuất.\n🔒 Lưu ý bảo mật: Đảm bảo tuân thủ mô hình trách nhiệm chia sẻ của AWS và cấu hình đúng các nhóm bảo mật (Security Groups) và mạng VPC khi triển khai ứng dụng.\n⚠️ Cảnh báo: Nhớ theo dõi chi phí AWS khi triển khai tài nguyên và dọn dẹp tài nguyên khi không sử dụng để tránh phát sinh chi phí không cần thiết.\n"
 },
 {
-	"uri": "/vi/2-deploy-local/1-install-dependencies/",
+	"uri": "//localhost:1313/vi/2-deploy-local/1-install-dependencies/",
 	"title": "Cài đặt Dependencies",
 	"tags": [],
 	"description": "",
-	"content": " Trong bài này thì chúng ta sẽ thực hành trên máy Windows.\nCài đặt NodeJS Để cho dễ hình dung hơn, thì bạn nên theo dõi video dưới đây để cài đặt NodeJS trên máy vi tính cá nhân của bạn.\nCài đặt MySQL Community Tương tự, xem thêm video này để cài đặt MySQL\nMột số lưu ý khi cài đặt MySQL:\nCác bạn nên cài cả MySQL Client và MySQL Server để tiện kiểm tra, đồng thời là cài luôn MySQL Workbench và MySQL Shell, là một hệ quản trị cơ sở dữ liệu giống với Microsoft SQL Server Management Studio của Microsoft SQL Server. Và có thể sau này bạn sẽ cần nó trong một số dự án khác. Trong MySQL cũng sẽ có 2 users là Root User và các User còn lại, các user này sẽ có các vai trò khác nhau. Nhưng phải luôn nhớ mật khẩu của Root User, đồng thời là thêm một tài khoản mới khi cài đặt MySQL Server. Kết quả Khi cài đặt NodeJS xong, chúng ta sẽ có được luôn npm ở trong gói cài đặt đó, kiểm tra xem NodeJS và NPM đã cài đặt thành công hay chưa thông qua 2 câu lệnh\nnode -v npm -v Sử dụng MySQL Shell Nhập MySQL Shell trên thanh tìm kiểm của windows, sau đó ấn chọn MySQL Shell.\nKhi mở lên thì chúng ta sẽ có được giao diện như sau\nGõ \\sql để chuyển Input Mode sang MySQL.\nSau đó là chúng ta sẽ kết nối tới MySQL Server\nNếu như bạn không tạo user trong quá trình cài đặt MySQL, thì có thể kết nối tới MySQL Server bằng Root User, khi đó connection string sẽ là root@localhost và nhớ nhập mật khẩu cho Root User mà bạn đã đặt trong quá trình cài đặt.\nDùng lệnh SHOW DATABASES; để kiểm tra kết quả lần nữa.\nKhi ra được kết quả này thì có nghĩa là bạn đã cài đặt đúng phần này và có thể chuyển tiếp tới phần tiếp theo.\n"
+	"content": "\rTrong bài này thì chúng ta sẽ thực hành trên máy Windows.\nCài đặt NodeJS Để cho dễ hình dung hơn, thì bạn nên theo dõi video dưới đây để cài đặt NodeJS trên máy vi tính cá nhân của bạn.\nCài đặt MySQL Community Tương tự, xem thêm video này để cài đặt MySQL\nMột số lưu ý khi cài đặt MySQL:\nCác bạn nên cài cả MySQL Client và MySQL Server để tiện kiểm tra, đồng thời là cài luôn MySQL Workbench và MySQL Shell, là một hệ quản trị cơ sở dữ liệu giống với Microsoft SQL Server Management Studio của Microsoft SQL Server. Và có thể sau này bạn sẽ cần nó trong một số dự án khác. Trong MySQL cũng sẽ có 2 users là Root User và các User còn lại, các user này sẽ có các vai trò khác nhau. Nhưng phải luôn nhớ mật khẩu của Root User, đồng thời là thêm một tài khoản mới khi cài đặt MySQL Server. Kết quả Khi cài đặt NodeJS xong, chúng ta sẽ có được luôn npm ở trong gói cài đặt đó, kiểm tra xem NodeJS và NPM đã cài đặt thành công hay chưa thông qua 2 câu lệnh\nnode -v npm -v Sử dụng MySQL Shell Nhập MySQL Shell trên thanh tìm kiểm của windows, sau đó ấn chọn MySQL Shell.\nKhi mở lên thì chúng ta sẽ có được giao diện như sau\nGõ \\sql để chuyển Input Mode sang MySQL.\nSau đó là chúng ta sẽ kết nối tới MySQL Server\nNếu như bạn không tạo user trong quá trình cài đặt MySQL, thì có thể kết nối tới MySQL Server bằng Root User, khi đó connection string sẽ là root@localhost và nhớ nhập mật khẩu cho Root User mà bạn đã đặt trong quá trình cài đặt.\nDùng lệnh SHOW DATABASES; để kiểm tra kết quả lần nữa.\nKhi ra được kết quả này thì có nghĩa là bạn đã cài đặt đúng phần này và có thể chuyển tiếp tới phần tiếp theo.\n"
 },
 {
-	"uri": "/vi/5-configure-ec2/1-launch-instance/",
+	"uri": "//localhost:1313/vi/5-configure-ec2/1-launch-instance/",
 	"title": "Cấu hình EC2 Instance",
 	"tags": [],
 	"description": "",
 	"content": "Cấu hình cho EC2 Instance Ở giao diện AWS Console\nTìm kiếm và chọn EC2 Ở giao diện quản lý EC2\nChọn Instance Chọn Launch Instances Name FCJ-Lab-my-server Chọn hệ điều hành Ubuntu Amazon Machine Image (AMI) Ubuntu Server 24.04 Instance type t3.medium Chọn Create new key pair Key pair name FCJ-Lab-key Chọn Create key pair Kéo xuống dưới phần cấu hình security\nVPC FCJ-Lab-vpc Chọn subnet public Auto-assign public IP Enable Chọn Select existing security group Chọn FCJ-Lab-SG Chọn Launch Template Gắn Role ECR cho EC2 Ở giao diện quan lý EC2 instance\nChọn EC2 FCJ-Lab-vpc Chọn Action Chọn Security Chọn Modify IAM role Chọn Role CustomeRWECRRole Chọn Update IAM role "
 },
 {
-	"uri": "/vi/3-preparation/1-create-vpc/",
+	"uri": "//localhost:1313/vi/3-preparation/1-create-vpc/",
 	"title": "Cấu hình VPC",
 	"tags": [],
 	"description": "",
 	"content": "Cấu hình VPC Ở giao diện AWS console thực hiện\nTìm kiếm và chọn VPC Ở giao diện quản lý VPC\nChọn Your VPC Chọn Create VPC Xuất hiện bảng cấu hình cho VPC\nChọn VPC and more Đặt tên FCJ-Lab Ở phần VPC endpoint\nChọn None Chọn Create VPC Sau khi tạo xong VPC, chúng ta tiến hành kiểm tra thông tin VPC vừa tạo.\nChọn FCJ-Lab-vpc Xem tổng quan cấu hình của VPC\nCấu hình Public Subnet Ở giao diện quản lý VPC, ở mục chọn ở bên trái kéo xuống dưới\nChọn Subnet Tìm kiếm FCJ-Lab Chúng ta sẽ thấy có 2 FCJ-Lab-subnet-public-1a, FCJ-Lab-subnet-public-1b\nĐầu tiên chúng ta sẽ setting cho FCJ-Lab-subnet-public-1a\nChọn FCJ-lab-subnet-public-1a Chọn Action Chọn Edit subnet settings Xuất hiện bảng cấu hình cho public subnet\nClick chọn Enable auto-assign public IPv4 address Chọn Save Tương tự, chúng ta sẽ setting cho FCJ-Lab-subnet-public-1b\nChọn FCJ-Lab-subnet-public-1b Chọn Action Chọn Edit subnet settings Click chọn Enable auto-assign public IPv4 address Chọn Save Như vậy, chúng ta vừa cấu hình xong VPC và enable public IPv4 cho subnet public.\n"
 },
 {
-	"uri": "/vi/1-introduction/",
+	"uri": "//localhost:1313/vi/1-introduction/",
 	"title": "Giới thiệu",
 	"tags": [],
 	"description": "",
 	"content": "Overview Trong workshop này, chúng ta sẽ cùng nhau thực hành việc triển khai ứng dụng lên Docker Container, từ xây dựng đến quản lý toàn bộ quá trình vận hành. Bạn sẽ được khám phá cách tận dụng sức mạnh của các công cụ và dịch vụ phổ biến trong môi trường container hóa như Docker Hub, Nginx, Amazon ECR, Amazon RDS, và Amazon EC2.\nNhững dịch vụ được sử dụng trong workshop bao gồm:\nDocker Hub: Đây là dịch vụ lưu trữ Docker image phổ biến nhất, giúp bạn dễ dàng lưu trữ và chia sẻ các image của ứng dụng, từ đó triển khai nhanh chóng ở bất kỳ đâu.\nNginx: Một trong những web server mạnh mẽ nhất, thường được sử dụng như một reverse proxy và load balancer, giúp tối ưu hóa việc phân phối ứng dụng và đảm bảo khả năng mở rộng cao.\nAmazon Elastic Container Registry (ECR): ECR là dịch vụ lưu trữ Docker image an toàn và tích hợp chặt chẽ với các dịch vụ của AWS, giúp bạn quản lý, lưu trữ và triển khai Docker images trực tiếp từ môi trường đám mây.\nAmazon Relational Database Service (RDS): RDS là một dịch vụ cơ sở dữ liệu được quản lý hoàn toàn, giúp tự động hóa các tác vụ bảo trì và tối ưu hóa cơ sở dữ liệu. Trong workshop này, bạn sẽ học cách tích hợp ứng dụng Docker của mình với RDS, đảm bảo hiệu suất cao và bảo mật tốt.\nAmazon EC2: EC2 cung cấp máy chủ đám mây linh hoạt và mạnh mẽ để bạn triển khai, chạy container và quản lý các ứng dụng container hóa của mình trên cơ sở hạ tầng AWS.\nMô tả tiến trình Yêu cầu từ người dùng (Client-Side): Người dùng bắt đầu yêu cầu từ trình duyệt hoặc thiết bị của họ, chẳng hạn như truy cập một trang web hoặc ứng dụng. Yêu cầu này sẽ được chuyển qua Internet, bắt đầu hành trình đến hạ tầng ứng dụng của bạn. Internet Gateway (Hạ tầng AWS): Yêu cầu đầu tiên sẽ đi qua Internet Gateway trong hạ tầng đám mây của bạn, thường được lưu trữ trên AWS. Internet Gateway đóng vai trò là cầu nối giữa internet công cộng và Virtual Private Cloud (VPC) của bạn. Nó chuyển tiếp lưu lượng đến máy chủ Nginx trong cơ sở hạ tầng của bạn. Nginx (Proxy ngược \u0026amp; Cân bằng tải): Nginx nhận yêu cầu và hoạt động như một reverse proxy để điều hướng lưu lượng đến các container ứng dụng thích hợp. Nginx chịu trách nhiệm chuyển tiếp yêu cầu đến container Frontend (xử lý giao diện người dùng và logic phía client) hoặc container Backend (xử lý logic và tương tác với cơ sở dữ liệu). Container Frontend và Backend: Container Frontend (thường được xây dựng với các framework như React, Vue.js, v.v.) xử lý giao diện người dùng và tầng trình bày của ứng dụng. Nó gửi các yêu cầu tới backend để xử lý logic phía máy chủ hoặc truy xuất dữ liệu. Container Backend (thường được xây dựng với Node.js, Python, v.v.) xử lý yêu cầu, áp dụng logic nghiệp vụ và gọi cơ sở dữ liệu để truy xuất hoặc lưu trữ dữ liệu. Amazon RDS (Tầng cơ sở dữ liệu): Container backend giao tiếp với Amazon RDS (Relational Database Service), nơi dữ liệu của ứng dụng được lưu trữ. Backend sẽ lấy dữ liệu cần thiết từ RDS, chẳng hạn như thông tin người dùng, kết quả quiz hoặc bất kỳ tương tác cơ sở dữ liệu nào mà ứng dụng yêu cầu. Phản hồi tới người dùng: Sau khi backend lấy dữ liệu từ RDS và xử lý yêu cầu, nó gửi phản hồi trở lại container frontend thông qua Nginx. Frontend hiển thị phản hồi và gửi lại cho người dùng, hoàn thành chu kỳ. Đẩy Docker Images lên Docker Hub và Amazon ECR: Tách biệt với chu kỳ yêu cầu-phản hồi, khi bạn thực hiện thay đổi ứng dụng hoặc hạ tầng, các Docker images được cập nhật (cho cả frontend và backend) sẽ được đẩy lên Docker Hub hoặc Amazon ECR (Elastic Container Registry). Các kho lưu trữ này lưu trữ hình ảnh một cách an toàn, giúp dễ dàng triển khai lại trên các môi trường khác nhau, chẳng hạn như EC2. "
 },
 {
-	"uri": "/vi/8-push-image/1-use-ecr/",
+	"uri": "//localhost:1313/vi/8-push-image/1-use-ecr/",
 	"title": "Sử dụng ECR",
 	"tags": [],
 	"description": "",
 	"content": "Tạo ECR Repository cho Frontend Image Tìm kiếm Amazon Elastic Container Registry Chọn Create Chúng ta sẽ tạo 2 repositories khác nhau để chứa các Docker Image. Đầu tiên là tạo repository để lưu image cho frontend app.\nRepository name: fcjresbar-fe. Image tag mutability: chọn Mutable. Encryption configuration: để mặc định. Ấn Create để tạo Tạo ECR Repository cho Backend Image Tương tự, giờ thì chúng ta sẽ tạo cho Backend Image\nVới các thông tin:\nRepository name: fcjresbar-be. Image tag mutability: chọn Mutable. Encryption configuration: để mặc định. Ấn Create để tạo Chúng ta cần phải tạo mỗi một repository cho mỗi một ứng dụng khác nhau để quản lý version của các Docker image dễ dàng hơn, đặc biệt là dùng để thực hiện CI/CD sau này.\nCài AWS CLI Theo mặc định (15/10/2024) thì AWS CLI không được cài đặt mặc định ở trong Ubuntu.\nTrước tiên thì chúng ta cần phải tải unzip trước.\nsudo apt install unzip Sau đó thì chúng ta sẽ dùng các câu lệnh ở bên dưới để có thể cài đặt được AWS CLI.\ncurl \u0026#34;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\u0026#34; -o \u0026#34;awscliv2.zip\u0026#34; unzip awscliv2.zip sudo ./aws/install Push Frontend Image lên ECR Vào lại ECR Console\nChọn fcjresbar-fe Ấn View push commands Khi đó một hộp thoại sẽ nhảy lên và chúng ta có thể thấy được một chuỗi các câu lệnh.\nTrở lại với EC2 Instance, chúng ta cần phải dùng Root User để có thể đăng nhập vào trong ECR với Docker.\nỞ AWS console của Push commands for fcjresbar-fe\nChọn câu lệnh thứ nhất để xác thực đăng nhập vào Amazon Elastic Container Registry (ECR) từ môi trường Docker local của bạn. Trước đó hay đảm bảo rằng bạn đã cấu hình AWS Configure Bởi vì khi mà người dùng sử dụng sudo để đăng nhập vào ECR với Docker, thì credential được lưu ở trong HOME Dir của người dùng đó. Nhưng khi thực hiện lệnh push hoặc pull, thì nó sẽ xem credential ở trong Root thay vì là ở trong HOME Dir đã được lưu khi đăng nhập trước đó.\nỞ các phần trước đó thì chúng ta đã tạo ra các Images cho từng ứng dụng rồi, nên là giờ chỉ cần gắn tag lại cho phù hợp rồi đẩy lên trên các Registry tương ứng.\ndocker image ls Ở AWS console của Push commands for fcjresbar-fe\nChọn dòng lệnh thứ 3 để thực hiện gắn tag, thay thế các tên resource image mà bạn tạo trước đó Format chung \u0026lt;Account_ID\u0026gt;.dkr.ecr.\u0026lt;region\u0026gt;.amazonaws.com/\u0026lt;Repository_Name\u0026gt;:\u0026lt;Name_tag\u0026gt;\nSau khi tạo xong thì tiến hành đẩy Image lên ECR\nỞ AWS console của Push commands for fcjresbar-fe\nChọn lệnh push Push Backend Image lên ECR Tương tự, chúng ta cũng sẽ view push command của fcjresbar-be, nhớ sao chép lại lệnh đăng nhập. Nhưng logout ra trước\nĐăng nhập lại bằng lệnh đăng nhập đã sao chép\nTương tự, gắn tag phù hợp cho image\nĐẩy image lên ECR\nKiểm tra kết quả Nếu như thành công, thì vào trong ECR Console, vào lần lượt từng repositories thì chúng ta có thể thấy được kết quả ở trong này.\n"
 },
 {
-	"uri": "/vi/4-configure-rds/1-create-db-subnet-group/",
+	"uri": "//localhost:1313/vi/4-configure-rds/1-create-db-subnet-group/",
 	"title": "Tạo DB Subnet Group",
 	"tags": [],
 	"description": "",
 	"content": "Tạo Subnet Group DB trong Amazon RDS ℹ️ Information: DB Subnet Group là một tập hợp các subnet được chỉ định cho cơ sở dữ liệu RDS của bạn trong một VPC. Subnet group cho phép Amazon RDS cung cấp địa chỉ IP từ subnet group khi khởi tạo instance cơ sở dữ liệu.\nCác bước thực hiện Truy cập Amazon RDS từ AWS Management Console: Tìm kiếm từ khóa: RDS Chọn phần: Subnet groups Chọn: Create DB subnet group Cấu hình thông tin cơ bản: Nhập tên: fcj-lab-subnet-group-db Nhập mô tả: Subnet Group for FCJ Management Chọn VPC đã được tạo từ trước là FCJ-Lab-vpc Cấu hình các Subnet: Chọn Availability Zones đã được tạo chung với VPC từ trước đó Chọn 2 Subnet private Kiểm tra lại và chọn Create 💡 Pro Tip: Sử dụng nhiều Availability Zone giúp tăng tính sẵn sàng và khả năng chịu lỗi cho cơ sở dữ liệu của bạn.\n🔒 Security Note: Luôn đặt cơ sở dữ liệu RDS trong subnet private để tăng cường bảo mật và tránh truy cập trực tiếp từ internet.\nXác nhận hoàn thành: Sau khi tạo thành công, bạn sẽ thấy DB Subnet Group mới trong danh sách "
 },
 {
-	"uri": "/vi/6-docker-image/1-deploy/",
+	"uri": "//localhost:1313/vi/6-docker-image/1-deploy/",
 	"title": "Triển khai Application",
 	"tags": [],
 	"description": "",
 	"content": "Ở phần 2 Deploy on Local trước đó thì chúng ta đã triển khai thủ công lần lượt là\nDatabase Server Web Server End User Application Có rất nhiều mặt hạn chế như mình đã nói trước đó, nên giờ chúng ta sẽ triển khai hạ tầng này ở trên Cloud với Docker, nên là việc tải về và cài đặt chúng ta sẽ không còn lo nữa. Nếu như bạn nắm được các khái niệm cơ bản của Docker (đặt biệt là mạng) thì phần này sẽ không quá khó.\nVà ở bước 4 Configure RDS trước đó thì chúng ta đã cấu hình Database Server với Amazon RDS, nên về mặt kỹ thuật, bảo trì và đảm bảo về truy cập cũng như an toàn dữ liệu thì mình sẽ không cần phải lo quá nhiều nữa. Nên là trong phần triển khai trên Cloud này thì mình chỉ quan tâm tới triển khai các ứng dụng còn lại với Docker Image.\nỞ phần sau thì chúng ta sẽ triển khai với Docker Compose, để cho bạn có thể thấy được sự khác biệt khi deploy ở Local, với Docker Image trên Cloud và với Docker Compose trên Cloud.\nỞ trong phần triển khai 2 Deploy on Local thì bạn có thể xem như là chúng ta đang triển khai ở trong môi trường phát triển, nhưng giờ sẽ triển khai ở môi trường sản phẩm hoặc là môi trường kiểm thử.\nTriển khai Web Server Vào trong thư mục mã nguồn mà chúng ta đã clone từ trước đó aws-fcj-container-app, trong thư mục backend, chúng ta sẽ sửa lại nội dung của .env, cụ thể là thay đổi biến DB_HOST\nGiờ thì web server của chúng ta cũng đã sẵn sàng để chạy, tiếp theo là chạy lệnh ở bên dưới\nsudo docker build . -t backend-image Trước khi bắt đầu chạy Container cho web server, thì mình sẽ cần phải tạo một network cho các container trong môi trường giao tiếp với nhau\nsudo docker network create my-network Sau đó là tiến hành chạy Docker Container với Docker Image vừa mới tạo\nsudo docker run -p 5000:5000 --network my-network --name backend backend-image Triển khai Application Giờ chúng ta sẽ phải mở một SSH Session mới để thực hiện tương tự như các bước ở trên, nhưng sẽ là triển khai Application\ncd vào trong thư mục frontend Chạy lệnh như bên dưới sudo docker build . -t frontend-image Sau đó là tiến hành chạy Docker Container với Docker Image vừa mới tạo\nsudo docker run -p 3000:80 --network my-network --name frontend frontend-image "
 },
 {
-	"uri": "/vi/7-docker-compose/1-deploy/",
+	"uri": "//localhost:1313/vi/7-docker-compose/1-deploy/",
 	"title": "Triển khai Application",
 	"tags": [],
 	"description": "",
 	"content": "Triển khai với Docker Compose Trước khi triển khai với Docker Compose, thì chúng ta dừng lại 2 Docker Containers (Ctrl + C) vừa rồi đã chạy.\nTạo một SSH Session mới, sau đó vào trong thư mục docker-compose-env nằm ở gốc của dự án và sửa lại biến DB_HOST\nSau đó thì chúng ta chỉ đơn giản dùng\ncd .. sudo docker compose -f docker-compose.app.yml up Để khởi động 2 containers giống như ở phần trước mà chúng ta đã làm.\nOk vậy là ứng dụng của chúng ta có vẻ như đã hoạt động được, ở bước sau thì tiến hành kiểm tra ứng dụng.\n"
 },
 {
-	"uri": "/vi/3-preparation/2-create-sg/",
+	"uri": "//localhost:1313/vi/3-preparation/2-create-sg/",
 	"title": "Cấu hình Security Group",
 	"tags": [],
 	"description": "",
 	"content": "Cấu hình Security Group cho EC2 Ở giao diện quản lý EC2, mục lựa chọn bên trái.\nChọn Security Groups Chọn Create security group Cấu hình cho Security Group\nỞ phần Basic details Security group name FCJ-Lab-sg-public Description Security group for FCJ Lab VPC FCJ-Lab-vpc Ở phần Inbound rules chúng ta sẽ thêm những rule như sau: Type SSH source Anywhere-IPv4 Type HTTP source Anywhere-IPv4 Type HTTPS source Anywhere-IPv4 Type Custom TCP, port range 3000, source Anywhere-IPv4 Ở phần Outbound chúng ta sẽ để mặc định Nhấn Create security group Cấu hình Security Group cho database instance Tưởng tự như bước tạo security group cho EC2\nChọn Security Groups Chọn Create security group Cấu hình cho Security Group\nỞ phần Basic details Security group name FCJ-Lab-sg-db Description Security group for RDS database instance VPC FCJ-Lab-vpc Ở phần Inbound Chọn Type MYSQL/Aurora Source chọn FCJ-Lab-sg Ở phần Outbound\nChúng ta để mặc định Chọn Create security group\n"
 },
 {
-	"uri": "/vi/4-configure-rds/2-launch-rds-instance/",
+	"uri": "//localhost:1313/vi/4-configure-rds/2-launch-rds-instance/",
 	"title": "Khởi chạy RDS Instance",
 	"tags": [],
 	"description": "",
 	"content": "Tạo RDS Instance Chọn phần: Databases Chọn: Create Database Chọn phương thức: Standard create Chọn loại lưu trữ là: MySQL Chọn template: Dev/Test Chọn Multi-AZ DB instance Phần này chúng ta có thể tự điều chỉnh sao cho phù hợp với yêu cầu để tối ưu hóa chi phí của bạn, tuy nhiên cũng sẽ có một số giới hạn vậy nên cần phải tìm hiểu kỹ.\nNhập tên DB instance: fcj-lab-rds-instance Nhập username: admin Nhập mật khẩu: letmein12345 Cấu hình lại cho phù hợp với yêu cầu Kết nối tới VPC đã tạo chọn Subnet đã tạo từ phần trước Chọn Security group đã tạo cho DB Phần sau có thể để mặc định hoặc cấu hình theo mong muốn Kiểm tra kĩ lại các cấu hình và chọn Create Hoàn tất tạo DB instance và quá trình này phải chờ khoảng 15 phút để hiện Available "
 },
 {
-	"uri": "/vi/6-docker-image/2-test-app/",
+	"uri": "//localhost:1313/vi/6-docker-image/2-test-app/",
 	"title": "Kiểm tra Application",
 	"tags": [],
 	"description": "",
 	"content": "Kết quả triển khai Quay lại trong EC2 Console, chúng ta cần sẽ sao chép lại Public IPv4 của EC2 mà nãy giờ chúng ta đã thao tác, sau đó là thêm vào trình duyệt URL như sau\nhttp://public-dns-of-your-ec2:3000 NginX hoạt động ở Port 80 trong container, khi mà chúng ta request tới URL trên, thì container sẽ đổi từ port 3000 -\u0026gt; 80.\nThử đăng nhập với User, nếu như đăng nhập thành công thì có nghĩa là ứng dụng của chúng ta đã hoạt động bình thường và chuyển chúng ta về giao diện chính.\nMở thêm một số trang khác\nNhư vậy thì chúng ta đã triển khai ứng dụng thành công với Docker Image. Sang phần sau thì chúng ta sẽ dùng một giải pháp khác để triển khai ứng dụng với Docker Compose, với giải pháp này thì việc triển khai, quản lý các containers sẽ dễ hơn.\n"
 },
 {
-	"uri": "/vi/7-docker-compose/2-test-app/",
+	"uri": "//localhost:1313/vi/7-docker-compose/2-test-app/",
 	"title": "Kiểm tra Application",
 	"tags": [],
 	"description": "",
 	"content": "Kiểm tra ứng dụng Tương tự như bước test trước, thì mình cũng sẽ vào lại trong DNS đó. Và bạn sẽ thấy được trang chủ của ứng dụng.\nGiờ thì đăng nhập vào trong app dưới người dùng là Admin\nSau đó chúng ta sẽ được chuyển hướng vào trang chính. Thử vào một số trang khác\n"
 },
 {
-	"uri": "/vi/8-push-image/2-use-docker-hub/",
+	"uri": "//localhost:1313/vi/8-push-image/2-use-docker-hub/",
 	"title": "Sử dụng Docker Hub",
 	"tags": [],
 	"description": "",
 	"content": "Tạo repository trên Docker Hub Vào Docker Hub đã được chuẩn bị sẵn và tạo một repository trong đó Chọn Create repository Chọn Namespace là account của mình Nhập tên repository: fcjresbar-fe Nhập mô tả: Frontend Image of FCJ Resbar Chọn public Kiểm tra lại và chọn Create Hoàn tất tạo một repository trên Docker Hub Tương tự, chúng ta tạo repository cho backend image.\nChọn Namespace là account của mình Nhập tên repository: fcjresbar-be Nhập mô tả: Backend Image of FCJ Resbar Chọn public Kiểm tra lại và chọn Create Kết quả\nPush frontend image lên Docker Hub Giờ thì chúng ta đã sẵn sàng đẩy các image lên trên từng repositories.\nLogout và đăng nhập vào Docker Hub. Nhờ là đăng nhập đúng tài khoản và mật khẩu của tài khoản mà bạn đã tạo các repositories ở bước vừa rồi.\nThay đổi tag cho frontend image\nĐẩy frontend image lên Docker Hub\nPush backend image lên Docker Hub Tương tự, giờ thì chúng ta đánh tag nhanh và push image lên Docker Hub\nKết quả Sau khi push xong, thì chúng ta có thể thấy được các image đã được đẩy lên trên từng repository.\n"
 },
 {
-	"uri": "/vi/2-deploy-local/",
+	"uri": "//localhost:1313/vi/2-deploy-local/",
 	"title": "Triển khai trên Local",
 	"tags": [],
 	"description": "",
 	"content": "Để có thể hiểu được vì sao mà chúng ta nên triển khai ứng dụng trên Docker Container với Docker làm nền tảng thay vì là nền tàng của chính nền tảng trên máy vi tính cá nhân.\nĐể ứng dụng của người dùng cuối có thể hoạt động được (như là người dùng có thể thêm thông tin, sửa thông tin, \u0026hellip;) thì chúng ta cần phải có một hoặc nhiều server để chịu trách nhiệm xử lý các yêu cầu từ người dùng. Khi này thì một hoặc nhiều server sẽ xử dụng tới tài nguyên của máy chủ (Host).\nTrong phần này thì chúng ta sẽ tiến hành triển khai một ứng dụng mẫu ở trên chính máy vi tính cá nhân để quan sát và đánh giá.\nNội Dung Cài đặt Dependencies Triển khai ứng dụng Kiểm tra ứng dụng "
 },
 {
-	"uri": "/vi/2-deploy-local/2-deploy-application/",
+	"uri": "//localhost:1313/vi/2-deploy-local/2-deploy-application/",
 	"title": "Triển khai ứng dụng",
 	"tags": [],
 	"description": "",
-	"content": " Để làm được phần này thì buộc bạn phải cài đặt được Git trước đó.\nTải mã nguồn Đầu tiên\nTạo một folder với tên bất kỳ (mình đặt là workspace). Click chuột phải chọn Open in Terminal. Clone mã nguồn của ứng dụng từ trên Github về trên máy.\nINSERT IMAGE HERE\ngit clone https://github.com/FCJ-DNTU/fcj-resbar.git Và đây là kết quả\nThêm dữ liệu Để thêm được dữ liệu:\nVào trong thư mục database của thư mục chứa mã nguồn với tải về. Sao chép đường dẫn ở trên thanh Browse của window. Dán đường dẫn vào trong MySQL Shell, thêm tên của script (init.sql) vào trong chuỗi mới dán vào. Vào MySQL Shell để kết nối tới MySQL Server, các bước kết nối tương tự như ở phần trước. Trong thư mục của dự án, bạn sẽ để ý thấy có một thư mục tên là database, trong này chứa script SQL để tạo cơ sở dữ liệu, bảng, các ràng buộc và thêm dữ liệu. Trong bước này thì chúng ta sẽ dùng lệnh source để chạy script.\nThực hiện một số truy vấn để kiểm tra\nSELECT * FROM Clients; Triển khai Web Server Sau khi dữ liệu đã được thêm thành công, thì giờ chúng ta sẽ khởi động Web Server, đầu tiên\nVào trong thư mục backend sửa đổi lại nội dung trong file .env. # Change these information ## Thay đổi các thông tin sau phù hợp với cấu hình ## trong lúc bạn cài đặt MYSQL_USER=admin MYSQL_PASSWORD=letmein12345 MYSQL_DATABASE=fcjresbar # Change this host ## Host này thì vẫn để nguyên trạng DB_HOST=localhost DB_DIALECT=mysql NODE_ENV=development PORT=5000 JWT_SECRET=0bac010eca699c25c8f62ba86e319c2305beb94641b859c32518cb854addb5f4 Sau đó là mở Terminal lên ở trong thư mục này Tiến hành cài đặt các NPM Packages để chạy server npm install Sau đó là khởi chạy server\nnpm run dev Và Web Server đã chạy thành công.\nTriển khai Client Application Tiếp theo, mình sẽ triển khai ứng dụng người dùng cuối\nVào trong thư mục frontend. Mở Terminal và cài đặt các NPM Packages. npm install Trước khi khởi chạy ứng dụng thì mình sẽ cần phải thay đổi lại nội dung trong file vite.config.js như đoạn cấu hình mẫu ở bên dưới\n/// \u0026lt;reference types=\u0026#34;vite/client\u0026#34; /\u0026gt; import { defineConfig } from \u0026#34;vite\u0026#34;; import react from \u0026#34;@vitejs/plugin-react\u0026#34;; // https://vitejs.dev/config/ export default defineConfig({ plugins: [react()], server: { proxy: { \u0026#34;/api\u0026#34;: { // API Endpoint của Web Server target: \u0026#34;http://localhost:5000/api\u0026#34;, changeOrigin: true, rewrite: (path) =\u0026gt; path.replace(/^\\/api/, \u0026#34;\u0026#34;), }, }, }, }); Đoạn cấu hình trên là chúng ta đã cài đặt proxy cho Vite, nghĩa là khi có request url mà có /api ở trong đó, thì sẽ được thay thế bởi chuỗi target.\nKhởi chạy ứng dụng\nnpm run dev Sau phần này thì chúng ta sẽ đi kiểm tra kết quả triển khai.\nKết luận Từ các bước triển khai từ đầu phần Triển khai trên Local này tới phần này, thì chúng ta có thể rút ra được một số điều sau:\nTriển khai thủ công rất cực, phải cài đặt rất nhiều thứ. Vì thế mà phần sau chúng ta sẽ dùng Linux và Docker để triển khai toàn bộ ứng dụng này. Nếu như ứng dụng được phát triển và triển khai trên nền tảng là Windows, thì khi chuyển sang các nền tảng khác thì cũng sẽ khó cho việc chuyển đổi. Nếu như chúng ta trển khai ứng dụng này lên môi trường thật, với chiến lược và kiến trúc như thế này thì hệ thống sẽ không mang tính đảm bảo cao. Không đảm bảo được \u0026ldquo;môi trường\u0026rdquo; cho các ứng dụng. Khi mà chúng ta triển khai như thế này, thì các ứng dụng đang xài chung một nguồn tài nguyên với nhau, và với các phần mềm khác ở trong máy. Đôi khi sẽ xảy ra một số lỗi từ một phần mềm hoặc ứng dụng khác, việc này sẽ làm ảnh hưởng tới hệ thống ứng dụng của chúng ta. "
+	"content": "\rĐể làm được phần này thì buộc bạn phải cài đặt được Git trước đó.\nTải mã nguồn Đầu tiên\nTạo một folder với tên bất kỳ (mình đặt là workspace). Click chuột phải chọn Open in Terminal. Clone mã nguồn của ứng dụng từ trên Github về trên máy.\nINSERT IMAGE HERE\ngit clone https://github.com/FCJ-DNTU/fcj-resbar.git Và đây là kết quả\nThêm dữ liệu Để thêm được dữ liệu:\nVào trong thư mục database của thư mục chứa mã nguồn với tải về. Sao chép đường dẫn ở trên thanh Browse của window. Dán đường dẫn vào trong MySQL Shell, thêm tên của script (init.sql) vào trong chuỗi mới dán vào. Vào MySQL Shell để kết nối tới MySQL Server, các bước kết nối tương tự như ở phần trước. Trong thư mục của dự án, bạn sẽ để ý thấy có một thư mục tên là database, trong này chứa script SQL để tạo cơ sở dữ liệu, bảng, các ràng buộc và thêm dữ liệu. Trong bước này thì chúng ta sẽ dùng lệnh source để chạy script.\nThực hiện một số truy vấn để kiểm tra\nSELECT * FROM Clients; Triển khai Web Server Sau khi dữ liệu đã được thêm thành công, thì giờ chúng ta sẽ khởi động Web Server, đầu tiên\nVào trong thư mục backend sửa đổi lại nội dung trong file .env. # Change these information ## Thay đổi các thông tin sau phù hợp với cấu hình ## trong lúc bạn cài đặt MYSQL_USER=admin MYSQL_PASSWORD=letmein12345 MYSQL_DATABASE=fcjresbar # Change this host ## Host này thì vẫn để nguyên trạng DB_HOST=localhost DB_DIALECT=mysql NODE_ENV=development PORT=5000 JWT_SECRET=0bac010eca699c25c8f62ba86e319c2305beb94641b859c32518cb854addb5f4 Sau đó là mở Terminal lên ở trong thư mục này Tiến hành cài đặt các NPM Packages để chạy server npm install Sau đó là khởi chạy server\nnpm run dev Và Web Server đã chạy thành công.\nTriển khai Client Application Tiếp theo, mình sẽ triển khai ứng dụng người dùng cuối\nVào trong thư mục frontend. Mở Terminal và cài đặt các NPM Packages. npm install Trước khi khởi chạy ứng dụng thì mình sẽ cần phải thay đổi lại nội dung trong file vite.config.js như đoạn cấu hình mẫu ở bên dưới\n/// \u0026lt;reference types=\u0026#34;vite/client\u0026#34; /\u0026gt; import { defineConfig } from \u0026#34;vite\u0026#34;; import react from \u0026#34;@vitejs/plugin-react\u0026#34;; // https://vitejs.dev/config/ export default defineConfig({ plugins: [react()], server: { proxy: { \u0026#34;/api\u0026#34;: { // API Endpoint của Web Server target: \u0026#34;http://localhost:5000/api\u0026#34;, changeOrigin: true, rewrite: (path) =\u0026gt; path.replace(/^\\/api/, \u0026#34;\u0026#34;), }, }, }, }); Đoạn cấu hình trên là chúng ta đã cài đặt proxy cho Vite, nghĩa là khi có request url mà có /api ở trong đó, thì sẽ được thay thế bởi chuỗi target.\nKhởi chạy ứng dụng\nnpm run dev Sau phần này thì chúng ta sẽ đi kiểm tra kết quả triển khai.\nKết luận Từ các bước triển khai từ đầu phần Triển khai trên Local này tới phần này, thì chúng ta có thể rút ra được một số điều sau:\nTriển khai thủ công rất cực, phải cài đặt rất nhiều thứ. Vì thế mà phần sau chúng ta sẽ dùng Linux và Docker để triển khai toàn bộ ứng dụng này. Nếu như ứng dụng được phát triển và triển khai trên nền tảng là Windows, thì khi chuyển sang các nền tảng khác thì cũng sẽ khó cho việc chuyển đổi. Nếu như chúng ta trển khai ứng dụng này lên môi trường thật, với chiến lược và kiến trúc như thế này thì hệ thống sẽ không mang tính đảm bảo cao. Không đảm bảo được \u0026ldquo;môi trường\u0026rdquo; cho các ứng dụng. Khi mà chúng ta triển khai như thế này, thì các ứng dụng đang xài chung một nguồn tài nguyên với nhau, và với các phần mềm khác ở trong máy. Đôi khi sẽ xảy ra một số lỗi từ một phần mềm hoặc ứng dụng khác, việc này sẽ làm ảnh hưởng tới hệ thống ứng dụng của chúng ta. "
 },
 {
-	"uri": "/vi/5-configure-ec2/2-install-required-libraries/",
+	"uri": "//localhost:1313/vi/5-configure-ec2/2-install-required-libraries/",
 	"title": "Cài đặt các thư viện yêu cầu",
 	"tags": [],
 	"description": "",
 	"content": "Đầu tiên thì chúng ta sẽ phải kết nối SSH vào trong EC2 Instance mà chúng ta vừa mới tạo. Và thực hiện một số câu lệnh để cập nhật thông tin, gói cài đặt ở trong máy.\nsudo apt update -y sudo apt upgrade -y Cài đặt Docker Chúng ta sẽ phải cài đặt Docker để triển khai các ứng dụng sau này. Chúng ta sẽ sử dụng các câu lệnh sau để cài đặt\n# Add Docker\u0026#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates curl sudo install -m 0755 -d /etc/apt/keyrings sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc sudo chmod a+r /etc/apt/keyrings/docker.asc # Add the repository to Apt sources: echo \\ \u0026#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \\ $(. /etc/os-release \u0026amp;\u0026amp; echo \u0026#34;$VERSION_CODENAME\u0026#34;) stable\u0026#34; | \\ sudo tee /etc/apt/sources.list.d/docker.list \u0026gt; /dev/null sudo apt-get update Sau đó là tiến hành cài đặt các thư viện liên quan cho docker\nsudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin Cài đặt MySQL Client Để có thể thêm được dữ liệu vào trong RDS, thì cần phải có MySQL Client. Tiến hành cài đặt MySQL Client.\nsudo apt install mysql-client Kiểm tra kết quả Kiểm tra Docker\nKiểm tra MySQL Client\nVà để có thể clone được mã nguồn thì cần phải có Git. Kiểm tra thử Git\nOk, vậy là mọi thứ đã được cài đặt ổn định.\nClone mã nguồn từ Github Trước khi đi tới phần tiếp theo, thì chúng ta sẽ cần phải clone mã nguồn của dự án trước.\ngit clone https://github.com/AWS-First-Cloud-Journey/aws-fcj-container-app.git "
 },
 {
-	"uri": "/vi/3-preparation/",
+	"uri": "//localhost:1313/vi/3-preparation/",
 	"title": "Chuẩn bị",
 	"tags": [],
 	"description": "",
 	"content": "Chuẩn bị Trong phần này chúng ta sẽ tiến hành cấu hình VPC, Security Group cho EC2 và RDS database instance, tạo role cho ECR.\nCấu hình VPC Tạo Security Group Cấu hình Role cho ECR Đăng nhập vào Docker Hub "
 },
 {
-	"uri": "/vi/2-deploy-local/3-test-app/",
+	"uri": "//localhost:1313/vi/2-deploy-local/3-test-app/",
 	"title": "Kiểm tra ứng dụng",
 	"tags": [],
 	"description": "",
 	"content": "Kiểm tra kết quả triển khai ℹ️ Information: Đầu tiên, chúng ta sẽ cần truy cập đường dẫn đã được mở ra trong lần triển khai trước đó http://localhost:5173. Khi đó chúng ta sẽ nhận được giao diện như sau:\nXác thực người dùng 🔒 Security Note: Dùng một trong hai tài khoản sau để đăng nhập vào ứng dụng:\nUser: email user@example.com; password 123456. Admin: email admin@example.com; password 123456. ⚠️ Warning: Trong môi trường sản xuất thực tế, cần sử dụng AWS IAM Identity Center hoặc Amazon Cognito cho xác thực an toàn hơn.\nKiểm tra giao diện Sau khi đăng nhập thành công, bạn sẽ thấy nội dung trên trang web như sau:\n💡 Pro Tip: Chuyển sang một số trang khác để kiểm tra tính năng điều hướng và hiển thị:\nChuẩn bị cho triển khai AWS ℹ️ Information: Việc hệ thống hoạt động tốt trên môi trường local cho thấy bạn đã triển khai thành công. Ở phần tiếp theo, chúng ta sẽ chuẩn bị triển khai lên AWS Cloud sử dụng Amazon ECS và Docker để tận dụng khả năng mở rộng và quản lý container hiệu quả.\n"
 },
 {
-	"uri": "/vi/3-preparation/3-create-role/",
+	"uri": "//localhost:1313/vi/3-preparation/3-create-role/",
 	"title": "Tạo IAM Roles để truy cập vào ECR",
 	"tags": [],
 	"description": "",
 	"content": "Cấu hình Policy Ở giao diện AWS Console\nChọn tìm và chọn IAM Ở mục chọn ở bên phải\nChọn Policy Chọn Create Policy Ở phần Policy Editor\nTìm kiếm và chọn Elastic Container Registry Chọn Next Xuất hiện bảng chọn các rule\nỞ phần List Chọn DescribeImage ListImages Ở phần Read Chọn BatchGetImage Chọn DescribeRegister Chọn DescribeRepositories Chọn GetAccountSetting Chọn GetAuthorizationToken Ở phần Resources Chọn Specific Chọn Any in this account Chọn Next Ở phần Policy detail Policy name ReadECRRepositoryContent Description Allow pull images, describe repositories Chọn Create policy Tương tự chúng ta tạo thêm một policy dành cho write ECR\nChọn Create Policy Xuất hiện bảng chọn các rule\nỞ phần Read Chọn BatchCheckLayerAvailability Chọn GetAuthorizationToken Ở phần Write Chọn Chọn CompleteLayerUpload Chọn InitialLayerUpload Chọn PutImage Chọn UploadLayerPart Ở phần Resources Chọn Any in this account Chọn Next Xuất hiện bảng Policy detail\nPolicy name WriteECRRepositoryContent Description Allow push and delete images Chọn Create policy Tạo Role cho ECR Ở giao diện quản lý EC2\nChọn Roles Chọn Create role Chọn AWS service Chọn EC2 Chọn Next Filter by Type Customer managed Chọn 2 policy mà chúng ta vừa tạo Chọn Next Role name CustomRWECRRole Description Custom Read and Write role ECS Chọn Create role "
 },
 {
-	"uri": "/vi/5-configure-ec2/3-add-data-testing/",
+	"uri": "//localhost:1313/vi/5-configure-ec2/3-add-data-testing/",
 	"title": "Thêm cơ sở dữ liệu để thử nghiệm",
 	"tags": [],
 	"description": "",
 	"content": "Chuẩn bị Để ứng dụng có thể hoạt động được, thì chúng ta cần phải thêm được dữ liệu vào trong RDS.\nChúng ta sẽ cần phải dùng sql script trong aws-fcj-container-app/database để có thể thêm được dữ liệu. Để có thể thêm được dữ liệu thì cd vào trong aws-fcj-container-app/database để lấy đường dẫn của script\ncd aws-fcj-container-app/database echo $PWD/init.sql Copy lại đường dẫn đó, chúng ta sẽ dùng nó sau.\nKết nối tới RDS Giờ thì chúng ta sẽ dùng mysql-client đã tải trước đó để kết nối vào trong RDS Instance. Trước tiên, vào trong RDS Console\nChọn RDS Instance mà chúng ta đã tạo hồi nãy. Copy Endpoint. mysql -h \u0026#34;rds-endpoint\u0026#34; -u admin -p Sau đó chúng ta sẽ dùng lệnh source /home/ubuntu/aws-fcj-container-app/database/init.sql để chạy script sql, dán lại đường dẫn mà chúng ta mới sao chép ở bước trước và chạy lệnh.\nKiểm tra kết quả Kiểm tra database: SHOW DATABASES\nKiểm tra dữ liệu: USE fcjresbar Nhập SELECT * FROM fcjresbar\n"
 },
 {
-	"uri": "/vi/3-preparation/4-login-docker-hub/",
+	"uri": "//localhost:1313/vi/3-preparation/4-login-docker-hub/",
 	"title": "Đăng nhập vào Docker Hub",
 	"tags": [],
 	"description": "",
 	"content": "Đăng nhập vào Docker Hub Truy cập vào https://hub.docker.com/\nĐăng nhập tài khoản Docker Hub. "
 },
 {
-	"uri": "/vi/4-configure-rds/",
+	"uri": "//localhost:1313/vi/4-configure-rds/",
 	"title": "Khởi chạy RDS Instance",
 	"tags": [],
 	"description": "",
 	"content": "Tổng quan RDS Amazon RDS là cơ sở dữ liệu được quản lý trên AWS, chúng ta chỉ truy cập và quản lý ở mức RDBMS, không thể truy cập và quản lý ở mức hệ điều hành. Bao gồm Aurora, MySQL, PostgreSQL, MSSQL, Oracle, và MariaDB. Amazon RDS cung cấp các tính năng:\nTự động sao lưu (cả log và database – tối đa 35 ngày). Tạo bản sao chỉ đọc (Read Replica) phục vụ cho các workload đọc (reporting). Read Replica có thể được tách ra và chuyển thành một Primary node. Chạy với cơ chế tự động failover, Primary/Standby, hay còn gọi là cơ chế Multi-AZ. RDS thường được sử dụng cho các ứng dụng OLTP. RDS cung cấp tính năng mã hóa dữ liệu at rest và in transit. RDS cũng được bảo vệ bởi tính năng tường lửa giống như EC2 (Security Group và NACL). Thay đổi quy mô (thay đổi instance size). Tự động tăng dung lượng lưu trữ (Storage Auto Scale). Nội dung Tạo DB Subnet Group Khởi chạy RDS Instance "
 },
 {
-	"uri": "/vi/5-configure-ec2/",
+	"uri": "//localhost:1313/vi/5-configure-ec2/",
 	"title": "Cấu hình EC2 Instance",
 	"tags": [],
 	"description": "",
 	"content": "Cấu hình EC2 Instance Ở phần này chúng ta sẽ thực hiện tạo một máy chủ EC2, cài đặt các thư viện và thêm dữ liệu vào database đã tạo trước đó. an Admininistrator Group\nKhởi chạy EC2 Instance Cài đặt các thư viện yêu cầu Thêm cơ sở dữ liệu để thử nghiệm "
 },
 {
-	"uri": "/vi/6-docker-image/",
+	"uri": "//localhost:1313/vi/6-docker-image/",
 	"title": "Triển khai trên Docker Image",
 	"tags": [],
 	"description": "",
 	"content": "Nội dung Ở phần trước thì chúng ta đã thêm các thư viện, gói chạy thành công. Giờ thì chúng ta sẽ sử dụng các dependencies đó để thực hiện các thao tác ở trong phần này.\nTriển khai Application Kiểm tra Application "
 },
 {
-	"uri": "/vi/7-docker-compose/",
+	"uri": "//localhost:1313/vi/7-docker-compose/",
 	"title": "Triển khai với Docker Compose",
 	"tags": [],
 	"description": "",
 	"content": "Triển khai ứng dụng với Docker Compose Triển khai Application Kiểm tra Application "
 },
 {
-	"uri": "/vi/8-push-image/",
+	"uri": "//localhost:1313/vi/8-push-image/",
 	"title": "Push Image",
 	"tags": [],
 	"description": "",
 	"content": "Push Docker Image lên Amazon ECR Amazon Elastic Container Registry (ECR) là một dịch vụ quản lý Docker container images được tích hợp với Amazon Web Services (AWS). Quá trình push image lên ECR là một phần quan trọng trong quy trình triển khai container trên AWS, giúp lưu trữ các image trong môi trường an toàn và dễ dàng tích hợp với các dịch vụ khác như ECS (Elastic Container Service) hoặc EKS (Elastic Kubernetes Service).\nPush Docker Image lên Docker Hub Docker Hub là một registry container phổ biến và công khai cho phép các nhà phát triển lưu trữ và phân phối Docker images trên toàn thế giới. Khi bạn push image lên Docker Hub, điều này giúp bạn dễ dàng chia sẻ ứng dụng container của mình với cộng đồng, các nhóm phát triển khác, hoặc cho mục đích sử dụng cá nhân.\nNội dung Sử dụng ECR Sử dụng Docker Hub "
 },
 {
-	"uri": "/vi/9-clean-up/",
+	"uri": "//localhost:1313/vi/9-clean-up/",
 	"title": "Dọn Dẹp Tài Nguyên",
 	"tags": [],
 	"description": "",
 	"content": "Dọn Dẹp Tài Nguyên Lưu ý: Trong phần tiếp theo, chúng ta sẽ tìm hiểu về Elastic Container Services và triển khai CICD Pipeline, vì vậy trong bước dọn dẹp tài nguyên, chúng ta có thể bỏ qua.\nDọn Dẹp Elastic Container Registry Trên giao diện AWS Console:\nTìm kiếm và chọn Elastic Container Registry. Bạn sẽ thấy hai kho lưu trữ mà chúng ta đã tạo trước đó:\nChọn fcjresbar-be. Nhấn Delete. Xác nhận hành động Delete. Tương tự, thực hiện cho kho còn lại:\nChọn fcjresbar-fe. Nhấn Delete. Xác nhận hành động Delete. Dọn Dẹp EC2 Tìm kiếm và chọn EC2. Chọn EC2 mà chúng ta đã tạo, FCJ-Lab-my-server. Xoá Security Group Tìm kiếm và chọn VPC. Tại bảng bên trái:\nChọn Security Groups. Chọn FCJ-Lab-sg-private. Nhấn Action. Chọn Delete security groups. Tương tự như trên:\nChọn Security Groups. Chọn FCJ-Lab-sg-public. Nhấn Action. Chọn Delete security groups. Xoá Role Tìm và chọn IAM. Tại bảng bên trái:\nChọn Role. Tìm kiếm customRWECRRole. Chọn role đã tạo. Nhấn Delete. Nhập customRWECRRole. Nhấn Delete. Dọn Dẹp VPC Tìm kiếm và chọn VPC. Chọn VPC-Lab-vpc. Nhấn Action. Chọn Delete VPC. Dọn Dẹp RDS Ở giao diện AWS console\nTìm kiếm và chọn RDS Chọn Database Chọn vào RDS instance mà chúng ta đã tạo Chọn Action Chọn Delete Chọn I acknowledge that upon instance deletion, automated backups, including system snapshots and point-in-time recovery, will no longer be available. Nhập delete me Chọn Delete "
 },
 {
-	"uri": "/vi/categories/",
+	"uri": "//localhost:1313/vi/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "/vi/tags/",
+	"uri": "//localhost:1313/vi/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",

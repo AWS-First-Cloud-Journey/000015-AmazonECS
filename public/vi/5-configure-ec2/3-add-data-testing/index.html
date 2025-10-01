@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="vi" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.123.7">
+    <meta name="generator" content="Hugo 0.128.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Thêm cơ sở dữ liệu để thử nghiệm :: TRIỂN KHAI ỨNG DỤNG TRÊN DOCKER CONTAINER</title>
 
     
-    <link href="/css/nucleus.css?1745170721" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1745170721" rel="stylesheet">
-    <link href="/css/hybrid.css?1745170721" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1745170721" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1745170721" rel="stylesheet">
-    <link href="/css/auto-complete.css?1745170721" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1745170721" rel="stylesheet">
-    <link href="/css/theme.css?1745170721" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1745170721" rel="stylesheet">
+    <link href="/css/nucleus.css?1759336865" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1759336865" rel="stylesheet">
+    <link href="/css/hybrid.css?1759336865" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1759336865" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1759336865" rel="stylesheet">
+    <link href="/css/auto-complete.css?1759336865" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1759336865" rel="stylesheet">
+    <link href="/css/theme.css?1759336865" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1759336865" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1745170721" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1759336865" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1745170721"></script>
+    <script src="/js/jquery-3.3.1.min.js?1759336865"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1745170721"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1745170721"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1759336865"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1759336865"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/\/vi";
+        var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1745170721"></script>
+<script type="text/javascript" src="/js/search.js?1759336865"></script>
 
     
   </div>
@@ -935,7 +935,7 @@
                   
                     
                     
-                      <option id="en" value="/5-configure-ec2/3-add-data-testing/">English</option>
+                      <option id="en" value="//localhost:1313/5-configure-ec2/3-add-data-testing/">English</option>
                     
                   
               
@@ -949,7 +949,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/5-configure-ec2/3-add-data-testing/" selected>Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/5-configure-ec2/3-add-data-testing/" selected>Tiếng Việt</option>
                     
                   
               
@@ -986,7 +986,7 @@
 <left>
     <br><br>
     <b> Last Updated </b> <br>
-    <i><font color=orange>21-04-2025</font></i>
+    <i><font color=orange>01/10/2025</font></i>
 </left>
 
 <left>
@@ -999,6 +999,7 @@
     <i><a href="http://linkedin.com/in/tunhatphuong2002" style="color:orange">Nhật Phương</a><br></i>
     <i><a href="http://www.linkedin.com/in/th%C3%A1i-anh-%C4%91%E1%BB%A9c-bb17282a5" style="color:orange">Anh Đức</a><br></i>
     <i><a href="http://linkedin.com/in/viet-hoang-b24b00317" style="color:orange">Hoàng Việt</a><br></i>
+    <i><a href="http://linkedin.com/in/tranvix0910" style="color:orange">Trần Vĩ</a><br></i>
 </left>
 
 
@@ -1090,7 +1091,7 @@
 	<h4 id="chuẩn-bị">Chuẩn bị</h4>
 <p>Để ứng dụng có thể hoạt động được, thì chúng ta cần phải thêm được dữ liệu vào trong RDS.</p>
 <p>Chúng ta sẽ cần phải dùng sql script trong <code>aws-fcj-container-app/database</code> để có thể thêm được dữ liệu. Để có thể thêm được dữ liệu thì <code>cd</code> vào trong <code>aws-fcj-container-app/database</code> để lấy đường dẫn của script</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd aws-fcj-container-app/database
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /projects/aws-fcj-container-app/database
 </span></span><span style="display:flex;"><span>echo $PWD/init.sql
 </span></span></code></pre></div><p><img alt="5.3.1.png" src="/images/5-configure-ec2/5.3.1.png"></p>
 <p>Copy lại đường dẫn đó, chúng ta sẽ dùng nó sau.</p>
@@ -1103,13 +1104,13 @@
 <p><img alt="5.3.2.png" src="/images/5-configure-ec2/5.3.2.png"></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mysql -h <span style="color:#e6db74">&#34;rds-endpoint&#34;</span> -u admin -p
 </span></span></code></pre></div><p><img alt="5.3.3.png" src="/images/5-configure-ec2/5.3.3.png"></p>
-<p>Sau đó chúng ta sẽ dùng lệnh <code>source /home/ubuntu/aws-fcj-container-app/database/init.sql</code> để chạy script sql, dán lại đường dẫn mà chúng ta mới sao chép ở bước trước và chạy lệnh.</p>
+<p>Sau đó chúng ta sẽ dùng lệnh <code>source /projects/aws-fcj-container-app/database/init.sql</code> để chạy script sql, dán lại đường dẫn mà chúng ta mới sao chép ở bước trước và chạy lệnh.</p>
 <p><img alt="5.3.4.png" src="/images/5-configure-ec2/5.3.4.png"></p>
 <h4 id="kiểm-tra-kết-quả">Kiểm tra kết quả</h4>
-<p>Kiểm tra database: <code>SHOW DATABASES</code></p>
+<p>Kiểm tra database: <code>show databases;</code></p>
 <p><img alt="5.3.5.png" src="/images/5-configure-ec2/5.3.5.png"></p>
-<p>Kiểm tra dữ liệu: <code>USE fcjresbar</code>
-Nhập <code>SELECT * FROM fcjresbar</code></p>
+<p>Kiểm tra dữ liệu: <code>use fcjresbar;</code>
+Nhập <code>select * from Clients;</code></p>
 <p><img alt="5.3.6.png" src="/images/5-configure-ec2/5.3.6.png"></p>
 
 
@@ -1625,19 +1626,19 @@ Nhập <code>SELECT * FROM fcjresbar</code></p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1745170721"></script>
-    <script src="/js/perfect-scrollbar.min.js?1745170721"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1745170721"></script>
-    <script src="/js/jquery.sticky.js?1745170721"></script>
-    <script src="/js/featherlight.min.js?1745170721"></script>
-    <script src="/js/highlight.pack.js?1745170721"></script>
+    <script src="/js/clipboard.min.js?1759336865"></script>
+    <script src="/js/perfect-scrollbar.min.js?1759336865"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1759336865"></script>
+    <script src="/js/jquery.sticky.js?1759336865"></script>
+    <script src="/js/featherlight.min.js?1759336865"></script>
+    <script src="/js/highlight.pack.js?1759336865"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1745170721"></script>
-    <script src="/js/learn.js?1745170721"></script>
-    <script src="/js/hugo-learn.js?1745170721"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1759336865"></script>
+    <script src="/js/learn.js?1759336865"></script>
+    <script src="/js/hugo-learn.js?1759336865"></script>
 
-    <link href="/mermaid/mermaid.css?1745170721" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1745170721"></script>
+    <link href="/mermaid/mermaid.css?1759336865" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1759336865"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

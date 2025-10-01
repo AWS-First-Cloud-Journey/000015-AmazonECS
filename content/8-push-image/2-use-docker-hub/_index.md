@@ -55,7 +55,7 @@ Push the frontend image to Docker Hub.
 
 ![8.2.8.png](/images/8-push-image/8.2.8.png)
 
-#### Push backend image to Docker Hub
+    #### Push backend image to Docker Hub
 
 Similarly, we will quickly tag and push the backend image to Docker Hub.
 

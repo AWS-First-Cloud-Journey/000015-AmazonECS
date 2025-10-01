@@ -22,23 +22,21 @@ pre = "<b>5.1. </b>"
 ![5.1.2](/images/5-configure-ec2/5.1.2.png)
 
 - Name `FCJ-Lab-my-server`
-
-![5.1.3](/images/5-configure-ec2/5.1.3.png)
-
 - Chọn hệ điều hành **Ubuntu**
 - Amazon Machine Image (AMI) **Ubuntu Server 24.04**
 
-![5.1.4](/images/5-configure-ec2/5.1.4.png)
+![5.1.3](/images/5-configure-ec2/5.1.3.png)
 
-- Instance type **t3.medium**
+
+- Instance type **t3.micro**
 - Chọn **Create new key pair**
 
-![5.1.5](/images/5-configure-ec2/5.1.5.png)
+![5.1.4](/images/5-configure-ec2/5.1.4.png)
 
-- Key pair name `FCJ-Lab-key`
+- Key pair name `FCJ-Lab-Key`
 - Chọn **Create key pair**
 
-![5.1.6](/images/5-configure-ec2/5.1.6.png)
+![5.1.5](/images/5-configure-ec2/5.1.5.png)
 
 Kéo xuống dưới phần cấu hình security
 
@@ -46,26 +44,26 @@ Kéo xuống dưới phần cấu hình security
 - Chọn **subnet public**
 - Auto-assign public IP **Enable**
 - Chọn **Select existing security group**
-- Chọn **FCJ-Lab-SG**
+- Chọn **FCJ-Lab-sg-public**
+
+![5.1.6](/images/5-configure-ec2/5.1.6.png)
+
+- Cấu hình Storage và chọn **Launch Instance**
 
 ![5.1.7](/images/5-configure-ec2/5.1.7.png)
-
-- Chọn **Launch Template**
-
-![5.1.8](/images/5-configure-ec2/5.1.8.png)
 
 #### Gắn Role ECR cho EC2
 
 Ở giao diện quan lý EC2 instance
 
-- Chọn EC2 **FCJ-Lab-vpc**
+- Chọn EC2 **FCJ-Lab**
 - Chọn **Action**
 - Chọn **Security**
 - Chọn **Modify IAM role**
 
-![5.1.9](/images/5-configure-ec2/5.1.9.png)
+![5.1.8](/images/5-configure-ec2/5.1.8.png)
 
 - Chọn Role **CustomeRWECRRole**
 - Chọn **Update IAM role**
 
-![5.1.13](/images/5-configure-ec2/5.1.10.png)
+![5.1.9](/images/5-configure-ec2/5.1.9.png)
