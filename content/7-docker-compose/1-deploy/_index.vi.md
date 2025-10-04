@@ -8,7 +8,7 @@ pre = "<b>7.1. </b>"
 
 #### Triển khai với Docker Compose
 
-Trước khi triển khai với Docker Compose, thì chúng ta dừng lại 2 Docker Containers (Ctrl + C) vừa rồi đã chạy.
+Trước khi triển khai với Docker Compose, thì chúng ta dừng lại 2 Docker Containers (`Ctrl + C`) vừa rồi đã chạy.
 
 ![7.1.1.png](/images/7-docker-compose/7.1.1.png)
 

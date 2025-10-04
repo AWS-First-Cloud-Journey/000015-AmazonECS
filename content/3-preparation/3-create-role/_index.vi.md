@@ -32,10 +32,10 @@ Xuất hiện bảng chọn các rule
 
 - Ở phần **List**
   - Chọn **DescribeImage**
-  - ListImages
+  - Chọn **ListImages**
 - Ở phần **Read**
   - Chọn **BatchGetImage**
-  - Chọn **DescribeRegister**
+  - Chọn **DescribeRegistry**
   - Chọn **DescribeRepositories**
   - Chọn **GetAccountSetting**
   - Chọn **GetAuthorizationToken**
@@ -53,15 +53,16 @@ Xuất hiện bảng chọn các rule
   - Policy name `ReadECRRepositoryContent`
   - Description `Allow pull images, describe repositories`
 
-![3.3.6](/images/3-preparation/3.3.6.png)
+![3.3.19](/images/3-preparation/3.3.19.png)
 
 - Chọn **Create policy**
 
-![3.3.7](/images/3-preparation/3.3.7.png)
 
-Tương tự chúng ta tạo thêm một policy dành cho write ECR
+Tương tự chúng ta tạo thêm một policy dành cho Write ECR
 
 - Chọn **Create Policy**
+
+![3.3.2](/images/3-preparation/3.3.2.png)
 
 Xuất hiện bảng chọn các rule
 
@@ -69,10 +70,17 @@ Xuất hiện bảng chọn các rule
   - Chọn **BatchCheckLayerAvailability**
   - Chọn **GetAuthorizationToken**
 - Ở phần **Write**
-  - Chọn **Chọn CompleteLayerUpload**
+  - Chọn **CompleteLayerUpload**
   - Chọn **InitialLayerUpload**
   - Chọn **PutImage**
   - Chọn **UploadLayerPart**
+
+![3.3.6](/images/3-preparation/3.3.6.png)
+
+Xuất hiện bảng Policy detail
+
+- Policy name `WriteECRRepositoryContent`
+- Description `Allow push and delete images`
 
 ![3.3.8](/images/3-preparation/3.3.8.png)
 
@@ -80,18 +88,11 @@ Xuất hiện bảng chọn các rule
   - Chọn **Any in this account**
   - Chọn **Next**
 
+![3.3.7](/images/3-preparation/3.3.7.png)
+
+- Chọn **Next** và chọn **Create policy**
+
 ![3.3.9](/images/3-preparation/3.3.9.png)
-
-Xuất hiện bảng Policy detail
-
-- Policy name **WriteECRRepositoryContent**
-- Description **Allow push and delete images**
-
-![3.3.10](/images/3-preparation/3.3.10.png)
-
-- Chọn **Create policy**
-
-![3.3.11](/images/3-preparation/3.3.11.png)
 
 #### Tạo Role cho ECR
 
@@ -100,28 +101,36 @@ Xuất hiện bảng Policy detail
 - Chọn **Roles**
 - Chọn **Create role**
 
-![3.3.12](/images/3-preparation/3.3.12.png)
+![3.3.10](/images/3-preparation/3.3.10.png)
 
 - Chọn **AWS service**
 - Chọn **EC2**
 
+![3.3.11](/images/3-preparation/3.3.11.png)
+
+- Chọn **EC2** và chọn **Next**
+
+![3.3.12](/images/3-preparation/3.3.12.png)
+
+- Tiếp theo chúng ta sẽ chọn các policy mà chúng ta vừa tạo ở mục **Customer managed**
+
 ![3.3.13](/images/3-preparation/3.3.13.png)
 
-- Chọn **Next**
+- Chọn 2 policy mà chúng ta vừa tạo `ReadECRRepositoryContent` và `WriteECRRepositoryContent`
 
 ![3.3.14](/images/3-preparation/3.3.14.png)
 
-- Filter by Type **Customer managed**
-- Chọn 2 policy mà chúng ta vừa tạo
-- Chọn **Next**
-
 ![3.3.15](/images/3-preparation/3.3.15.png)
 
-- Role name **CustomRWECRRole**
-- Description **Custom Read and Write role ECS**
+- Sau đó chúng ta sẽ chọn **Next**
 
 ![3.3.16](/images/3-preparation/3.3.16.png)
 
-- Chọn **Create role**
+- Role name `CustomRWECRRole`
+- Description `Custom Read and Write role ECS`
 
 ![3.3.17](/images/3-preparation/3.3.17.png)
+
+- Chọn **Create role**
+
+![3.3.18](/images/3-preparation/3.3.18.png)

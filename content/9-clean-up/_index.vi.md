@@ -22,7 +22,7 @@ Trên giao diện AWS Console:
 
 Bạn sẽ thấy hai kho lưu trữ mà chúng ta đã tạo trước đó:
 
-- Chọn **fcjresbar-be**.
+- Chọn **fcjresbar-fe**.
 - Nhấn **Delete**.
 
 ![9.2](/images/9-clean-up/9.2.png)
@@ -33,7 +33,7 @@ Bạn sẽ thấy hai kho lưu trữ mà chúng ta đã tạo trước đó:
 
 Tương tự, thực hiện cho kho còn lại:
 
-- Chọn **fcjresbar-fe**.
+- Chọn **fcjresbar-be**.
 - Nhấn **Delete**.
 
 ![9.4](/images/9-clean-up/9.4.png)
@@ -61,7 +61,7 @@ Tương tự, thực hiện cho kho còn lại:
 Tại bảng bên trái:
 
 - Chọn **Security Groups**.
-- Chọn **FCJ-Lab-sg-private**.
+- Chọn **FCJ-Lab-sg-public**.
 - Nhấn **Action**.
 - Chọn **Delete security groups**.
 
@@ -70,7 +70,7 @@ Tại bảng bên trái:
 Tương tự như trên:
 
 - Chọn **Security Groups**.
-- Chọn **FCJ-Lab-sg-public**.
+- Chọn **FCJ-Lab-sg-db**.
 - Nhấn **Action**.
 - Chọn **Delete security groups**.
 
@@ -104,6 +104,7 @@ Tại bảng bên trái:
 - Chọn **Delete VPC**.
 
 ![9.14](/images/9-clean-up/9.14.png)
+![9.15](/images/9-clean-up/9.15.png)
 
 #### Dọn Dẹp RDS
 
@@ -111,17 +112,17 @@ Tại bảng bên trái:
 
 - Tìm kiếm và chọn **RDS**
 
-![9.15](/images/9-clean-up/9.15.png)
+![9.16](/images/9-clean-up/9.16.png)
 
 - Chọn **Database**
 - Chọn vào RDS instance mà chúng ta đã tạo
 - Chọn **Action**
 - Chọn **Delete**
 
-![9.16](/images/9-clean-up/9.16.png)
+![9.17](/images/9-clean-up/9.17.png)
 
 - Chọn **I acknowledge that upon instance deletion, automated backups, including system snapshots and point-in-time recovery, will no longer be available.**
 - Nhập `delete me`
 - Chọn **Delete**
 
-![9.17](/images/9-clean-up/9.17.png)
+![9.18](/images/9-clean-up/9.18.png)

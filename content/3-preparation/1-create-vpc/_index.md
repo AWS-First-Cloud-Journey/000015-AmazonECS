@@ -25,25 +25,29 @@ The VPC configuration panel appears:
 
 - Choose **VPC and more**
 - Name it `FCJ-Lab`
+- Select CIDR block `10.0.0.0/16`
 
 ![3.1.3](/images/3-preparation/3.1.3.png)
+
+- Configure **Public Subnet** and **Private Subnet**
+
+![3.1.4](/images/3-preparation/3.1.4.png)
 
 In the VPC endpoint section:
 
 - Select **None**
 - Click on **Create VPC**
 
-![3.1.4](/images/3-preparation/3.1.4.png)
+![3.1.5](/images/3-preparation/3.1.5.png)
+![3.1.6](/images/3-preparation/3.1.6.png)
 
 After creating the VPC, we will check the information of the newly created VPC:
 
 - Select **FCJ-Lab-vpc**
 
-![3.1.5](/images/3-preparation/3.1.5.png)
-
 View the overview of the VPC configuration:
 
-![3.1.6](/images/3-preparation/3.1.6.png)
+![3.1.7](/images/3-preparation/3.1.7.png)
 
 ### Public Subnet Configuration
 
@@ -54,34 +58,34 @@ In the VPC management interface, scroll down in the left sidebar:
 
 ![3.1.7](/images/3-preparation/3.1.7.png)
 
-You will see two subnets: **FCJ-Lab-subnet-public-1a** and **FCJ-Lab-subnet-public-1b**.
+You will see two subnets: **FCJ-Lab-subnet-public1-us-east-1a** and **FCJ-Lab-subnet-public1-us-east-1b**.
 
 First, we will configure **FCJ-Lab-subnet-public-1a**:
 
-- Select **FCJ-Lab-subnet-public-1a**
+- Select **FCJ-lab-subnet-public1-us-east-1a**
 - Click on **Action**
 - Choose **Edit subnet settings**
 
-![3.1.8](/images/3-preparation/3.1.8.png)
+![3.1.9](/images/3-preparation/3.1.9.png)
 
 The public subnet configuration panel appears:
 
 - Check **Enable auto-assign public IPv4 address**
 - Click **Save**
 
-![3.1.9](/images/3-preparation/3.1.9.png)
+![3.1.10](/images/3-preparation/3.1.10.png)
 
 Similarly, we will configure **FCJ-Lab-subnet-public-1b**:
 
-- Select **FCJ-Lab-subnet-public-1b**
+- Select **FCJ-Lab-subnet-public2-us-east-1b**
 - Click on **Action**
 - Choose **Edit subnet settings**
 
-![3.1.10](/images/3-preparation/3.1.10.png)
+![3.1.11](/images/3-preparation/3.1.11.png)
 
 - Check **Enable auto-assign public IPv4 address**
 - Click **Save**
 
-![3.1.11](/images/3-preparation/3.1.11.png)
+![3.1.12](/images/3-preparation/3.1.12.png)
 
 Thus, we have configured the VPC and enabled public IPv4 for the public subnets.

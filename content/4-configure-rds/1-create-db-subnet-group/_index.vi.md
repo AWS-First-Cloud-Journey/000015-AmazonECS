@@ -14,24 +14,27 @@ pre = "<b>4.1. </b>"
 
 1. Truy cập Amazon RDS từ AWS Management Console:
    - Tìm kiếm từ khóa: **RDS** 
+
+![RDS](/images/4-rds/4.1.1.png)
+
    - Chọn phần: **Subnet groups**
    - Chọn: **Create DB subnet group**
 
-![RDS](/images/4-rds/4.1.1.png)
+![RDS](/images/4-rds/4.1.2.png)
 
 2. Cấu hình thông tin cơ bản:
    - Nhập tên: **`fcj-lab-subnet-group-db`**
    - Nhập mô tả: **`Subnet Group for FCJ Management`**
    - Chọn VPC đã được tạo từ trước là **FCJ-Lab-vpc**
 
-![RDS](/images/4-rds/4.1.2.png)
+![RDS](/images/4-rds/4.1.3.png)
 
 3. Cấu hình các Subnet:
    - Chọn **Availability Zones** đã được tạo chung với **VPC** từ trước đó
    - Chọn 2 **Subnet private**
    - Kiểm tra lại và chọn **Create**
 
-![RDS](/images/4-rds/4.1.3.png)
+![RDS](/images/4-rds/4.1.4.png)
 
 **💡 Pro Tip**: Sử dụng nhiều Availability Zone giúp tăng tính sẵn sàng và khả năng chịu lỗi cho cơ sở dữ liệu của bạn. 
 
@@ -40,4 +43,4 @@ pre = "<b>4.1. </b>"
 4. Xác nhận hoàn thành:
    - Sau khi tạo thành công, bạn sẽ thấy DB Subnet Group mới trong danh sách
 
-![RDS](/images/4-rds/4.1.4.png)
+![RDS](/images/4-rds/4.1.5.png)

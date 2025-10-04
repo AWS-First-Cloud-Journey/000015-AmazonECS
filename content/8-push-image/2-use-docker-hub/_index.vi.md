@@ -39,7 +39,7 @@ Kết quả
 
 ![8.2.5.png](/images/8-push-image/8.2.5.png)
 
-#### Push frontend image lên Docker Hub
+#### Push frontend image và backend image lên Docker Hub
 
 Giờ thì chúng ta đã sẵn sàng đẩy các image lên trên từng repositories.
 
@@ -47,24 +47,35 @@ Logout và đăng nhập vào Docker Hub. Nhờ là đăng nhập đúng tài kh
 
 ![8.2.6.png](/images/8-push-image/8.2.6.png)
 
-Thay đổi tag cho frontend image
+Thay đổi tag cho **Frontend Image** và **Backend Image**
+
+```bash
+docker image ls
+```
+```bash
+docker tag aws-fcj-container-app-frontend tranvix0910/fcjresbar-fe
+docker tag aws-fcj-container-app-backend tranvix0910/fcjresbar-be
+```
+
+```bash
+docker push tranvix0910/fcjresbar-fe
+docker push tranvix0910/fcjresbar-be
+```
+
+{{% notice note %}}
+Nếu chúng ta không đề cập tag trong lệnh `docker tag`, thì nó sẽ tự động thêm tag `latest` vào image.
+{{% /notice %}}
+
 
 ![8.2.7.png](/images/8-push-image/8.2.7.png)
 
-Đẩy frontend image lên Docker Hub
-
 ![8.2.8.png](/images/8-push-image/8.2.8.png)
 
-#### Push backend image lên Docker Hub
-
-Tương tự, giờ thì chúng ta đánh tag nhanh và push image lên Docker Hub
-
-![8.2.9.png](/images/8-push-image/8.2.9.png)
 
 #### Kết quả
 
 Sau khi push xong, thì chúng ta có thể thấy được các image đã được đẩy lên trên từng repository.
 
-![8.2.10.png](/images/8-push-image/8.2.10.png)
+![8.2.9.png](/images/8-push-image/8.2.9.png)
 
-![8.2.11.png](/images/8-push-image/8.2.11.png)
+![8.2.10.png](/images/8-push-image/8.2.10.png)

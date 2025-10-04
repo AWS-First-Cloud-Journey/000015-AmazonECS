@@ -21,8 +21,6 @@ pre = "<b>2.2. </b>"
 
 Clone mã nguồn của ứng dụng từ trên Github về trên máy.
 
-**INSERT IMAGE HERE**
-
 ```bash
 git clone https://github.com/FCJ-DNTU/fcj-resbar.git
 ```

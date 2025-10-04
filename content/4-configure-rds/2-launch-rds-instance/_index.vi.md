@@ -26,31 +26,38 @@ Phần này chúng ta có thể tự điều chỉnh sao cho phù hợp với y�
 {{% /notice%}}
 
 ![RDS](/images/4-rds/4.2.3.png)
+![RDS](/images/4-rds/4.2.4.png)
 
 - Nhập tên DB instance: **`fcj-lab-rds-instance`**
 - Nhập username: **`admin`**
 - Nhập mật khẩu: **`letmein12345`**
 
-![RDS](/images/4-rds/4.2.4.png)
-
-- Cấu hình lại cho phù hợp với yêu cầu
-
 ![RDS](/images/4-rds/4.2.5.png)
+![RDS](/images/4-rds/4.2.6.png)
+
+- Cấu hình Instance Size
+- Chọn **db.t3.micro**
+
+![RDS](/images/4-rds/4.2.7.png)
 
 - Kết nối tới **VPC** đã tạo
 - chọn **Subnet** đã tạo từ phần trước
 
-![RDS](/images/4-rds/4.2.6.png)
+![RDS](/images/4-rds/4.2.8.png)
 
 - Chọn **Security group** đã tạo cho DB
 - Phần sau có thể để mặc định hoặc cấu hình theo mong muốn
 
-![RDS](/images/4-rds/4.2.7.png)
+![RDS](/images/4-rds/4.2.9.png)
 
 - Kiểm tra kĩ lại các cấu hình và chọn **Create**
 
-![RDS](/images/4-rds/4.2.8.png)
+![RDS](/images/4-rds/4.2.10.png)
+
+{{% notice tip%}}
+Hiện tại khi tạo RDS Instance, AWS cung cấp thông tin tính toán về chi phí ngay khi tạo instance. Giúp bạn dễ dàng quản lý chi phí.
+{{% /notice%}}
 
 - Hoàn tất tạo **DB instance** và quá trình này phải chờ khoảng 15 phút để hiện **Available**
 
-![RDS](/images/4-rds/4.2.9.png)
+![RDS](/images/4-rds/4.2.11.png)

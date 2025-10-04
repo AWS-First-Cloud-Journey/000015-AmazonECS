@@ -54,15 +54,15 @@ In the Policy details section:
 - Policy name: `ReadECRRepositoryContent`
 - Description: `Allow pull images, describe repositories`
 
-![3.3.6](/images/3-preparation/3.3.6.png)
+![3.3.19](/images/3-preparation/3.3.19.png)
 
 - Click **Create policy**
-
-![3.3.7](/images/3-preparation/3.3.7.png)
 
 Similarly, we will create an additional policy for writing to ECR:
 
 - Click **Create Policy**
+
+![3.3.2](/images/3-preparation/3.3.2.png)
 
 A rule selection panel appears:
 
@@ -75,24 +75,24 @@ A rule selection panel appears:
   - Select **PutImage**
   - Select **UploadLayerPart**
 
-![3.3.8](/images/3-preparation/3.3.8.png)
-
-- In the **Resources** section:
-  - Select **Any in this account**
-  - Click **Next**
-
-![3.3.9](/images/3-preparation/3.3.9.png)
+![3.3.6](/images/3-preparation/3.3.6.png)
 
 The Policy details panel appears:
 
 - Policy name: `WriteECRRepositoryContent`
 - Description: `Allow push and delete images`
 
-![3.3.10](/images/3-preparation/3.3.10.png)
+![3.3.8](/images/3-preparation/3.3.8.png)
 
-- Click **Create policy**
+- In the **Resources** section:
+  - Select **Any in this account**
+  - Click **Next**
 
-![3.3.11](/images/3-preparation/3.3.11.png)
+![3.3.7](/images/3-preparation/3.3.7.png)
+
+- Click **Next** and select **Create policy**
+
+![3.3.9](/images/3-preparation/3.3.9.png)
 
 #### Create Role for ECR
 
@@ -101,30 +101,38 @@ In the EC2 management interface:
 - Select **Roles**
 - Click on **Create role**
 
-![3.3.12](/images/3-preparation/3.3.12.png)
+![3.3.10](/images/3-preparation/3.3.10.png)
 
 - Select **AWS service**
 - Choose **EC2**
 
+![3.3.11](/images/3-preparation/3.3.11.png)
+
+- Choose **EC2** and click **Next**
+
+![3.3.12](/images/3-preparation/3.3.12.png)
+
+- Next, we will select the policies we just created in the **Customer managed** section
+
 ![3.3.13](/images/3-preparation/3.3.13.png)
 
-- Click **Next**
+- Select the two policies we just created: `ReadECRRepositoryContent` and `WriteECRRepositoryContent`
 
 ![3.3.14](/images/3-preparation/3.3.14.png)
 
-- Filter by Type: **Customer managed**
-- Select the two policies we just created
-- Click **Next**
-
 ![3.3.15](/images/3-preparation/3.3.15.png)
+
+- Then we will click **Next**
+
+![3.3.16](/images/3-preparation/3.3.16.png)
 
 In the Role details section:
 
 - Role name: `CustomRWECRRole`
-- Description: `Custom Read and Write role for ECS`
+- Description: `Custom Read and Write role ECS`
 
-![3.3.16](/images/3-preparation/3.3.16.png)
+![3.3.17](/images/3-preparation/3.3.17.png)
 
 - Click **Create role**
 
-![3.3.17](/images/3-preparation/3.3.17.png)
+![3.3.18](/images/3-preparation/3.3.18.png)

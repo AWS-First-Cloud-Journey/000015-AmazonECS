@@ -26,3 +26,7 @@ chapter = false
 🔒 **Lưu ý bảo mật**: Đảm bảo tuân thủ mô hình trách nhiệm chia sẻ của AWS và cấu hình đúng các nhóm bảo mật (Security Groups) và mạng VPC khi triển khai ứng dụng.
 
 ⚠️ **Cảnh báo**: Nhớ theo dõi chi phí AWS khi triển khai tài nguyên và dọn dẹp tài nguyên khi không sử dụng để tránh phát sinh chi phí không cần thiết.
+
+{{% notice warning %}}
+**Lưu ý:** Trong quá trình thực hiện bài lab sẽ có các thành phần được che hoặc xóa vì lí do an toàn như Account ID và các thông tin nhạy cảm khác.
+{{% /notice %}}

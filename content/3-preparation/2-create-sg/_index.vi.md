@@ -33,6 +33,9 @@ Cấu hình cho Security Group
 ![3.2.3](/images/3-preparation/3.2.3.png)
 
 - Ở phần Outbound chúng ta sẽ để mặc định
+
+![3.2.4](/images/3-preparation/3.2.4.png)
+
 - Nhấn **Create security group**
 
 #### Cấu hình Security Group cho database instance
@@ -42,7 +45,7 @@ Tưởng tự như bước tạo security group cho EC2
 - Chọn **Security Groups**
 - Chọn **Create security group**
 
-![3.2.1](/images/3-preparation/3.2.1.png)
+![3.2.5](/images/3-preparation/3.2.5.png)
 
 Cấu hình cho Security Group
 
@@ -51,18 +54,19 @@ Cấu hình cho Security Group
   - Description `Security group for RDS database instance`
   - VPC **FCJ-Lab-vpc**
 
-![3.2.5](/images/3-preparation/3.2.5.png)
+![3.2.6](/images/3-preparation/3.2.6.png)
 
 - Ở phần Inbound
   - Chọn Type **MYSQL/Aurora**
   - Source chọn **FCJ-Lab-sg**
 
-![3.2.6](/images/3-preparation/3.2.6.png)
+![3.2.7](/images/3-preparation/3.2.7.png)
 
 - Ở phần Outbound
 
-  - Chúng ta để mặc định
+- Chúng ta để mặc định
+
+![3.2.8](/images/3-preparation/3.2.8.png)
 
 - Chọn **Create security group**
 
-![3.2.7](/images/3-preparation/3.2.7.png)
