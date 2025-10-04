@@ -47,15 +47,30 @@ Logout and log in to Docker Hub. Make sure to log in with the correct account an
 
 ![8.2.6.png](/images/8-push-image/8.2.6.png)
 
-Change the tag for the frontend image.
+Change the tag for the frontend image and backend image.
+
+```bash
+docker image ls
+```
+```bash
+docker tag aws-fcj-container-app-frontend tranvix0910/fcjresbar-fe
+docker tag aws-fcj-container-app-backend tranvix0910/fcjresbar-be
+```
+
+```bash
+docker push tranvix0910/fcjresbar-fe
+docker push tranvix0910/fcjresbar-be
+```
+
+{{% notice note %}}
+If we don't specify a tag in the `docker tag` command, it will automatically add the `latest` tag to the image.
+{{% /notice %}}
 
 ![8.2.7.png](/images/8-push-image/8.2.7.png)
 
-Push the frontend image to Docker Hub.
-
 ![8.2.8.png](/images/8-push-image/8.2.8.png)
 
-    #### Push backend image to Docker Hub
+#### Push backend image to Docker Hub
 
 Similarly, we will quickly tag and push the backend image to Docker Hub.
 

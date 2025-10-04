@@ -12,21 +12,21 @@
     <title>VPC Configuration :: DEPLOY APPLICATION ON DOCKER CONTAINER</title>
 
     
-    <link href="/css/nucleus.css?1759335338" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1759335338" rel="stylesheet">
-    <link href="/css/hybrid.css?1759335338" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1759335338" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1759335338" rel="stylesheet">
-    <link href="/css/auto-complete.css?1759335338" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1759335338" rel="stylesheet">
-    <link href="/css/theme.css?1759335338" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1759335338" rel="stylesheet">
+    <link href="/css/nucleus.css?1759593890" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1759593890" rel="stylesheet">
+    <link href="/css/hybrid.css?1759593890" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1759593890" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1759593890" rel="stylesheet">
+    <link href="/css/auto-complete.css?1759593890" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1759593890" rel="stylesheet">
+    <link href="/css/theme.css?1759593890" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1759593890" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1759335338" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1759593890" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1759335338"></script>
+    <script src="/js/jquery-3.3.1.min.js?1759593890"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1759335338"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1759335338"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1759593890"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1759593890"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1759335338"></script>
+<script type="text/javascript" src="/js/search.js?1759593890"></script>
 
     
   </div>
@@ -1105,21 +1105,26 @@
 <ul>
 <li>Choose <strong>VPC and more</strong></li>
 <li>Name it <code>FCJ-Lab</code></li>
+<li>Select CIDR block <code>10.0.0.0/16</code></li>
 </ul>
 <p><img alt="3.1.3" src="/images/3-preparation/3.1.3.png"></p>
+<ul>
+<li>Configure <strong>Public Subnet</strong> and <strong>Private Subnet</strong></li>
+</ul>
+<p><img alt="3.1.4" src="/images/3-preparation/3.1.4.png"></p>
 <p>In the VPC endpoint section:</p>
 <ul>
 <li>Select <strong>None</strong></li>
 <li>Click on <strong>Create VPC</strong></li>
 </ul>
-<p><img alt="3.1.4" src="/images/3-preparation/3.1.4.png"></p>
+<p><img alt="3.1.5" src="/images/3-preparation/3.1.5.png">
+<img alt="3.1.6" src="/images/3-preparation/3.1.6.png"></p>
 <p>After creating the VPC, we will check the information of the newly created VPC:</p>
 <ul>
 <li>Select <strong>FCJ-Lab-vpc</strong></li>
 </ul>
-<p><img alt="3.1.5" src="/images/3-preparation/3.1.5.png"></p>
 <p>View the overview of the VPC configuration:</p>
-<p><img alt="3.1.6" src="/images/3-preparation/3.1.6.png"></p>
+<p><img alt="3.1.7" src="/images/3-preparation/3.1.7.png"></p>
 <h3 id="public-subnet-configuration">Public Subnet Configuration</h3>
 <p>In the VPC management interface, scroll down in the left sidebar:</p>
 <ul>
@@ -1127,32 +1132,32 @@
 <li>Search for <strong>FCJ-Lab</strong></li>
 </ul>
 <p><img alt="3.1.7" src="/images/3-preparation/3.1.7.png"></p>
-<p>You will see two subnets: <strong>FCJ-Lab-subnet-public-1a</strong> and <strong>FCJ-Lab-subnet-public-1b</strong>.</p>
+<p>You will see two subnets: <strong>FCJ-Lab-subnet-public1-us-east-1a</strong> and <strong>FCJ-Lab-subnet-public1-us-east-1b</strong>.</p>
 <p>First, we will configure <strong>FCJ-Lab-subnet-public-1a</strong>:</p>
 <ul>
-<li>Select <strong>FCJ-Lab-subnet-public-1a</strong></li>
+<li>Select <strong>FCJ-lab-subnet-public1-us-east-1a</strong></li>
 <li>Click on <strong>Action</strong></li>
 <li>Choose <strong>Edit subnet settings</strong></li>
 </ul>
-<p><img alt="3.1.8" src="/images/3-preparation/3.1.8.png"></p>
+<p><img alt="3.1.9" src="/images/3-preparation/3.1.9.png"></p>
 <p>The public subnet configuration panel appears:</p>
 <ul>
 <li>Check <strong>Enable auto-assign public IPv4 address</strong></li>
 <li>Click <strong>Save</strong></li>
 </ul>
-<p><img alt="3.1.9" src="/images/3-preparation/3.1.9.png"></p>
+<p><img alt="3.1.10" src="/images/3-preparation/3.1.10.png"></p>
 <p>Similarly, we will configure <strong>FCJ-Lab-subnet-public-1b</strong>:</p>
 <ul>
-<li>Select <strong>FCJ-Lab-subnet-public-1b</strong></li>
+<li>Select <strong>FCJ-Lab-subnet-public2-us-east-1b</strong></li>
 <li>Click on <strong>Action</strong></li>
 <li>Choose <strong>Edit subnet settings</strong></li>
 </ul>
-<p><img alt="3.1.10" src="/images/3-preparation/3.1.10.png"></p>
+<p><img alt="3.1.11" src="/images/3-preparation/3.1.11.png"></p>
 <ul>
 <li>Check <strong>Enable auto-assign public IPv4 address</strong></li>
 <li>Click <strong>Save</strong></li>
 </ul>
-<p><img alt="3.1.11" src="/images/3-preparation/3.1.11.png"></p>
+<p><img alt="3.1.12" src="/images/3-preparation/3.1.12.png"></p>
 <p>Thus, we have configured the VPC and enabled public IPv4 for the public subnets.</p>
 
 
@@ -1665,19 +1670,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1759335338"></script>
-    <script src="/js/perfect-scrollbar.min.js?1759335338"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1759335338"></script>
-    <script src="/js/jquery.sticky.js?1759335338"></script>
-    <script src="/js/featherlight.min.js?1759335338"></script>
-    <script src="/js/highlight.pack.js?1759335338"></script>
+    <script src="/js/clipboard.min.js?1759593890"></script>
+    <script src="/js/perfect-scrollbar.min.js?1759593890"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1759593890"></script>
+    <script src="/js/jquery.sticky.js?1759593890"></script>
+    <script src="/js/featherlight.min.js?1759593890"></script>
+    <script src="/js/highlight.pack.js?1759593890"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1759335338"></script>
-    <script src="/js/learn.js?1759335338"></script>
-    <script src="/js/hugo-learn.js?1759335338"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1759593890"></script>
+    <script src="/js/learn.js?1759593890"></script>
+    <script src="/js/hugo-learn.js?1759593890"></script>
 
-    <link href="/mermaid/mermaid.css?1759335338" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1759335338"></script>
+    <link href="/mermaid/mermaid.css?1759593890" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1759593890"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

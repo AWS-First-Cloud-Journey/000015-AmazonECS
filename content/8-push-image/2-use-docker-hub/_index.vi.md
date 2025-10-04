@@ -77,4 +77,5 @@ Nếu chúng ta không đề cập tag trong lệnh `docker tag`, thì nó sẽ 
 Sau khi push xong, thì chúng ta có thể thấy được các image đã được đẩy lên trên từng repository.
 
 ![8.2.9.png](/images/8-push-image/8.2.9.png)
+
 ![8.2.10.png](/images/8-push-image/8.2.10.png)

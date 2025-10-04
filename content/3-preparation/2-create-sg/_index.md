@@ -33,6 +33,9 @@ Configure the Security Group:
 ![3.2.3](/images/3-preparation/3.2.3.png)
 
 - For the **Outbound rules**, we will leave it as default.
+
+![3.2.4](/images/3-preparation/3.2.4.png)
+
 - Click on **Create security group**.
 
 #### Security Group Configuration for Database Instance
@@ -63,6 +66,6 @@ Configure the Security Group:
 
   - Leave it as default.
 
-- Click on **Create security group**.
+![3.2.8](/images/3-preparation/3.2.8.png)
 
-![3.2.7](/images/3-preparation/3.2.7.png)
+- Click on **Create security group**.

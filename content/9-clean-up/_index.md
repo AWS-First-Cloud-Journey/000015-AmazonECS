@@ -30,7 +30,7 @@ Follow these steps to remove your ECR repositories:
 ![9.1](/images/9-clean-up/9.1.png)
 
 3. Locate the repositories created during this workshop:
-   - Select **fcjresbar-be**
+   - Select **fcjresbar-fe**
    - Click **Delete**
 
 ![9.2](/images/9-clean-up/9.2.png)
@@ -39,8 +39,8 @@ Follow these steps to remove your ECR repositories:
 
 ![9.3](/images/9-clean-up/9.3.png)
 
-5. Repeat the process for the frontend repository:
-   - Select **fcjresbar-fe**
+5. Repeat the process for the backend repository:
+   - Select **fcjresbar-be**
    - Click **Delete**
 
 ![9.4](/images/9-clean-up/9.4.png)
@@ -74,15 +74,15 @@ Follow these steps to remove your ECR repositories:
 
 3. In the left navigation panel:
    - Select **Security Groups**
-   - Choose **FCJ-Lab-sg-private**
+   - Choose **FCJ-Lab-sg-public**
    - Click **Actions**
    - Select **Delete security groups**
 
 ![9.9](/images/9-clean-up/9.9.png)
 
-4. Similarly, for the public security group:
+4. Similarly, for the database security group:
    - Select **Security Groups**
-   - Choose **FCJ-Lab-sg-public**
+   - Choose **FCJ-Lab-sg-db**
    - Click **Actions**
    - Select **Delete security groups**
 
@@ -122,6 +122,8 @@ Follow these steps to remove your ECR repositories:
 
 ![9.14](/images/9-clean-up/9.14.png)
 
+![9.15](/images/9-clean-up/9.15.png)
+
 **💡 Pro Tip**: Before deleting a VPC, ensure all resources within it have been terminated, including EC2 instances, RDS databases, and load balancers.
 
 #### Clean Up Amazon RDS
@@ -131,20 +133,20 @@ Follow these steps to remove your ECR repositories:
 1. Navigate to the Amazon RDS console
 2. Search for and select **RDS**
 
-![9.15](/images/9-clean-up/9.15.png)
+![9.16](/images/9-clean-up/9.16.png)
 
 3. Select **Databases**
 4. Choose the RDS instance created during this workshop
 5. Click **Actions**
 6. Select **Delete**
 
-![9.16](/images/9-clean-up/9.16.png)
+![9.17](/images/9-clean-up/9.17.png)
 
 7. In the confirmation dialog:
-   - Check the acknowledgment box regarding automated backups and snapshots
+   - Check **I acknowledge that upon instance deletion, automated backups, including system snapshots and point-in-time recovery, will no longer be available.**
    - Enter `delete me` in the field
    - Click **Delete**
 
-![9.17](/images/9-clean-up/9.17.png)
+![9.18](/images/9-clean-up/9.18.png)
 
 **⚠️ Warning**: Deleting an RDS instance is permanent. Ensure you've created any necessary final snapshots if you need to preserve your data.

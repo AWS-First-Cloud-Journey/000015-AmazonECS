@@ -12,21 +12,21 @@
     <title>Install required libraries :: DEPLOY APPLICATION ON DOCKER CONTAINER</title>
 
     
-    <link href="/css/nucleus.css?1759336865" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1759336865" rel="stylesheet">
-    <link href="/css/hybrid.css?1759336865" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1759336865" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1759336865" rel="stylesheet">
-    <link href="/css/auto-complete.css?1759336865" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1759336865" rel="stylesheet">
-    <link href="/css/theme.css?1759336865" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1759336865" rel="stylesheet">
+    <link href="/css/nucleus.css?1759593890" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1759593890" rel="stylesheet">
+    <link href="/css/hybrid.css?1759593890" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1759593890" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1759593890" rel="stylesheet">
+    <link href="/css/auto-complete.css?1759593890" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1759593890" rel="stylesheet">
+    <link href="/css/theme.css?1759593890" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1759593890" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1759336865" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1759593890" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1759336865"></script>
+    <script src="/js/jquery-3.3.1.min.js?1759593890"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1759336865"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1759336865"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1759593890"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1759593890"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1759336865"></script>
+<script type="text/javascript" src="/js/search.js?1759593890"></script>
 
     
   </div>
@@ -1062,7 +1062,7 @@
       <ul>
         <li></li>
         <li><a href="#check-the-results">Check the results</a></li>
-        <li><a href="#clone-the-project-from-github">Clone the Project from GitHub</a></li>
+        <li><a href="#clone-the-source-code-from-github">Clone the source code from GitHub</a></li>
       </ul>
     </li>
   </ul>
@@ -1096,40 +1096,43 @@
 </span></span></code></pre></div><p><img alt="5.2.1.png" src="/images/5-configure-ec2/5.2.1.png"></p>
 <p><img alt="5.2.2.png" src="/images/5-configure-ec2/5.2.2.png"></p>
 <h4 id="install-docker">Install Docker</h4>
-<p>Next, we need to install Docker to deploy applications later. Use the following commands to install Docker:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Add Docker&#39;s official GPG key:</span>
-</span></span><span style="display:flex;"><span>sudo apt-get update
-</span></span><span style="display:flex;"><span>sudo apt-get install ca-certificates curl
-</span></span><span style="display:flex;"><span>sudo install -m <span style="color:#ae81ff">0755</span> -d /etc/apt/keyrings
-</span></span><span style="display:flex;"><span>sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-</span></span><span style="display:flex;"><span>sudo chmod a+r /etc/apt/keyrings/docker.asc
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add the repository to Apt sources:</span>
-</span></span><span style="display:flex;"><span>echo <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  <span style="color:#e6db74">&#34;deb [arch=</span><span style="color:#66d9ef">$(</span>dpkg --print-architecture<span style="color:#66d9ef">)</span><span style="color:#e6db74"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  </span><span style="color:#66d9ef">$(</span>. /etc/os-release <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;</span>$VERSION_CODENAME<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74"> stable&#34;</span> | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
-</span></span><span style="display:flex;"><span>sudo apt-get update
-</span></span></code></pre></div><p><img alt="5.2.3.png" src="/images/5-configure-ec2/5.2.3.png"></p>
-<p>Then proceed to install the necessary Docker libraries.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-</span></span></code></pre></div><p><img alt="5.2.4.png" src="/images/5-configure-ec2/5.2.4.png"></p>
+<p>We need to install Docker to deploy applications later. We will use the following commands to install:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p /tools/docker <span style="color:#f92672">&amp;&amp;</span> cd /tools/docker
+</span></span><span style="display:flex;"><span>vi install_docker.sh
+</span></span><span style="display:flex;"><span>chmod +x install_docker.sh
+</span></span><span style="display:flex;"><span>./install_docker.sh
+</span></span></code></pre></div><p>Content of the <code>install_docker.sh</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+</span></span><span style="display:flex;"><span>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> stable&#34;</span> | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</span></span><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install -y docker-ce
+</span></span><span style="display:flex;"><span>sudo systemctl start docker
+</span></span><span style="display:flex;"><span>sudo systemctl enable docker
+</span></span><span style="display:flex;"><span>sudo curl -L <span style="color:#e6db74">&#34;https://github.com/docker/compose/releases/latest/download/docker-compose-</span><span style="color:#66d9ef">$(</span>uname -s<span style="color:#66d9ef">)</span><span style="color:#e6db74">-</span><span style="color:#66d9ef">$(</span>uname -m<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> -o /usr/local/bin/docker-compose
+</span></span><span style="display:flex;"><span>sudo chmod +x /usr/local/bin/docker-compose
+</span></span><span style="display:flex;"><span>docker --version
+</span></span><span style="display:flex;"><span>docker-compose --version
+</span></span></code></pre></div><p><img alt="5.2.2.png" src="/images/5-configure-ec2/5.2.2.png"></p>
 <h4 id="install-mysql-client">Install MySQL Client</h4>
 <p>To add data to the RDS instance, we need to install the MySQL Client. Use the following command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install mysql-client
-</span></span></code></pre></div><p><img alt="5.2.5.png" src="/images/5-configure-ec2/5.2.5.png"></p>
+</span></span></code></pre></div><p><img alt="5.2.3.png" src="/images/5-configure-ec2/5.2.3.png"></p>
 <h3 id="check-the-results">Check the results</h3>
-<p>Docker Test</p>
-<p><img alt="5.2.6.png" src="/images/5-configure-ec2/5.2.6.png"></p>
-<p>MySQL Client Test</p>
-<p><img alt="5.2.7.png" src="/images/5-configure-ec2/5.2.7.png"></p>
-<p>Finally, to clone the source code, we need Git. Check if Git is installed:</p>
-<p><img alt="5.2.8.png" src="/images/5-configure-ec2/5.2.8.png"></p>
-<p>Everything is now set up correctly.</p>
-<h3 id="clone-the-project-from-github">Clone the Project from GitHub</h3>
+<p>Check MySQL Client</p>
+<p><img alt="5.2.4.png" src="/images/5-configure-ec2/5.2.4.png"></p>
+<p>And to be able to clone the source code, we need Git. Check if Git is installed:</p>
+<p><img alt="5.2.5.png" src="/images/5-configure-ec2/5.2.5.png"></p>
+<p>Ok, everything has been installed properly.</p>
+<h3 id="clone-the-source-code-from-github">Clone the source code from GitHub</h3>
 <p>Before proceeding to the next steps, we need to clone the project source code.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/AWS-First-Cloud-Journey/aws-fcj-container-app.git
-</span></span></code></pre></div><p><img alt="5.2.9.png" src="/images/5-configure-ec2/5.2.9.png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p /projects <span style="color:#f92672">&amp;&amp;</span> cd /projects
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/tranvix0910/aws-fcj-container-app.git
+</span></span></code></pre></div><p><img alt="5.2.7.png" src="/images/5-configure-ec2/5.2.7.png">
+<img alt="5.2.6.png" src="/images/5-configure-ec2/5.2.6.png"></p>
 
 
 
@@ -1644,19 +1647,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1759336865"></script>
-    <script src="/js/perfect-scrollbar.min.js?1759336865"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1759336865"></script>
-    <script src="/js/jquery.sticky.js?1759336865"></script>
-    <script src="/js/featherlight.min.js?1759336865"></script>
-    <script src="/js/highlight.pack.js?1759336865"></script>
+    <script src="/js/clipboard.min.js?1759593890"></script>
+    <script src="/js/perfect-scrollbar.min.js?1759593890"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1759593890"></script>
+    <script src="/js/jquery.sticky.js?1759593890"></script>
+    <script src="/js/featherlight.min.js?1759593890"></script>
+    <script src="/js/highlight.pack.js?1759593890"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1759336865"></script>
-    <script src="/js/learn.js?1759336865"></script>
-    <script src="/js/hugo-learn.js?1759336865"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1759593890"></script>
+    <script src="/js/learn.js?1759593890"></script>
+    <script src="/js/hugo-learn.js?1759593890"></script>
 
-    <link href="/mermaid/mermaid.css?1759336865" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1759336865"></script>
+    <link href="/mermaid/mermaid.css?1759593890" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1759593890"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

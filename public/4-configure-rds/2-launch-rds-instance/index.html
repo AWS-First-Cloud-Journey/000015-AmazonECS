@@ -12,21 +12,21 @@
     <title>Launch RDS Instance :: DEPLOY APPLICATION ON DOCKER CONTAINER</title>
 
     
-    <link href="/css/nucleus.css?1759336641" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1759336641" rel="stylesheet">
-    <link href="/css/hybrid.css?1759336641" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1759336641" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1759336641" rel="stylesheet">
-    <link href="/css/auto-complete.css?1759336641" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1759336641" rel="stylesheet">
-    <link href="/css/theme.css?1759336641" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1759336641" rel="stylesheet">
+    <link href="/css/nucleus.css?1759593890" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1759593890" rel="stylesheet">
+    <link href="/css/hybrid.css?1759593890" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1759593890" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1759593890" rel="stylesheet">
+    <link href="/css/auto-complete.css?1759593890" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1759593890" rel="stylesheet">
+    <link href="/css/theme.css?1759593890" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1759593890" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1759336641" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1759593890" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1759336641"></script>
+    <script src="/js/jquery-3.3.1.min.js?1759593890"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1759336641"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1759336641"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1759593890"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1759593890"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1759336641"></script>
+<script type="text/javascript" src="/js/search.js?1759593890"></script>
 
     
   </div>
@@ -1107,35 +1107,42 @@
 <div class="notices tip" ><p>This section can be adjusted according to your needs to optimize costs, but there are some limitations, so it&rsquo;s important to research carefully.</p>
 </div>
 
-<p><img alt="RDS" src="/images/4-rds/4.2.3.png"></p>
+<p><img alt="RDS" src="/images/4-rds/4.2.3.png">
+<img alt="RDS" src="/images/4-rds/4.2.4.png"></p>
 <ul>
 <li>Enter the DB instance name: <strong><code>fcj-lab-rds-instance</code></strong></li>
 <li>Enter the  username: <strong><code>admin</code></strong></li>
 <li>Enter the password: <strong><code>letmein12345</code></strong></li>
 </ul>
-<p><img alt="RDS" src="/images/4-rds/4.2.4.png"></p>
+<p><img alt="RDS" src="/images/4-rds/4.2.5.png">
+<img alt="RDS" src="/images/4-rds/4.2.6.png"></p>
 <ul>
-<li>Adjust configurations as needed</li>
+<li>Configure Instance Size</li>
+<li>Select <strong>db.t3.micro</strong></li>
 </ul>
-<p><img alt="RDS" src="/images/4-rds/4.2.5.png"></p>
+<p><img alt="RDS" src="/images/4-rds/4.2.7.png"></p>
 <ul>
 <li>Connect to the previously created <strong>VPC</strong></li>
 <li>Select the <strong>Subnet</strong> created in the previous section</li>
 </ul>
-<p><img alt="RDS" src="/images/4-rds/4.2.6.png"></p>
+<p><img alt="RDS" src="/images/4-rds/4.2.8.png"></p>
 <ul>
 <li>Choose the <strong>Security group</strong> created for the DB</li>
 <li>The following sections can be left as default or configured based on your preferences</li>
 </ul>
-<p><img alt="RDS" src="/images/4-rds/4.2.7.png"></p>
+<p><img alt="RDS" src="/images/4-rds/4.2.9.png"></p>
 <ul>
 <li>Review all configurations carefully and click <strong>Create</strong></li>
 </ul>
-<p><img alt="RDS" src="/images/4-rds/4.2.8.png"></p>
+<p><img alt="RDS" src="/images/4-rds/4.2.10.png"></p>
+
+<div class="notices tip" ><p>Currently when creating RDS Instance, AWS provides cost calculation information immediately when creating the instance. This helps you easily manage costs.</p>
+</div>
+
 <ul>
 <li>Complete the creation of the <strong>DB instance</strong>, it will take about 15 minutes to become <strong>Available</strong></li>
 </ul>
-<p><img alt="RDS" src="/images/4-rds/4.2.9.png"></p>
+<p><img alt="RDS" src="/images/4-rds/4.2.11.png"></p>
 
 
 
@@ -1650,19 +1657,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1759336641"></script>
-    <script src="/js/perfect-scrollbar.min.js?1759336641"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1759336641"></script>
-    <script src="/js/jquery.sticky.js?1759336641"></script>
-    <script src="/js/featherlight.min.js?1759336641"></script>
-    <script src="/js/highlight.pack.js?1759336641"></script>
+    <script src="/js/clipboard.min.js?1759593890"></script>
+    <script src="/js/perfect-scrollbar.min.js?1759593890"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1759593890"></script>
+    <script src="/js/jquery.sticky.js?1759593890"></script>
+    <script src="/js/featherlight.min.js?1759593890"></script>
+    <script src="/js/highlight.pack.js?1759593890"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1759336641"></script>
-    <script src="/js/learn.js?1759336641"></script>
-    <script src="/js/hugo-learn.js?1759336641"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1759593890"></script>
+    <script src="/js/learn.js?1759593890"></script>
+    <script src="/js/hugo-learn.js?1759593890"></script>
 
-    <link href="/mermaid/mermaid.css?1759336641" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1759336641"></script>
+    <link href="/mermaid/mermaid.css?1759593890" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1759593890"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

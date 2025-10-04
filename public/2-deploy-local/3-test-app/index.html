@@ -12,21 +12,21 @@
     <title>Test Application :: DEPLOY APPLICATION ON DOCKER CONTAINER</title>
 
     
-    <link href="/css/nucleus.css?1759331036" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1759331036" rel="stylesheet">
-    <link href="/css/hybrid.css?1759331036" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1759331036" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1759331036" rel="stylesheet">
-    <link href="/css/auto-complete.css?1759331036" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1759331036" rel="stylesheet">
-    <link href="/css/theme.css?1759331036" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1759331036" rel="stylesheet">
+    <link href="/css/nucleus.css?1759593890" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1759593890" rel="stylesheet">
+    <link href="/css/hybrid.css?1759593890" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1759593890" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1759593890" rel="stylesheet">
+    <link href="/css/auto-complete.css?1759593890" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1759593890" rel="stylesheet">
+    <link href="/css/theme.css?1759593890" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1759593890" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1759331036" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1759593890" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1759331036"></script>
+    <script src="/js/jquery-3.3.1.min.js?1759593890"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1759331036"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1759331036"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1759593890"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1759593890"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1759331036"></script>
+<script type="text/javascript" src="/js/search.js?1759593890"></script>
 
     
   </div>
@@ -1089,19 +1089,23 @@
 
 
 	<h4 id="check-deployment-results">Check Deployment Results</h4>
-<p>First, we need to go to the URL that was opened during the previous deployment: <code>http://localhost:5173</code>. At that point, you will see the following interface:</p>
+<p><strong>ℹ️ Information</strong>: First, we need to go to the URL that was opened during the previous deployment: <code>http://localhost:5173</code>. At that point, you will see the following interface:</p>
 <p><img alt="2.3.1" src="/images/2-deploy-local/2.3.1.png"></p>
-<p>Use one of the following accounts to log in:</p>
+<h4 id="user-authentication">User Authentication</h4>
+<p><strong>🔒 Security Note</strong>: Use one of the following accounts to log in to the application:</p>
 <ul>
 <li>User: email <code>user@example.com</code>; password <code>123456</code>.</li>
 <li>Admin: email <code>admin@example.com</code>; password <code>123456</code>.</li>
 </ul>
-<p>After logging in, you will see the content on the web as follows:</p>
+<p><strong>⚠️ Warning</strong>: In a real production environment, you should use AWS IAM Identity Center or Amazon Cognito for more secure authentication.</p>
+<h4 id="check-interface">Check Interface</h4>
+<p>After logging in successfully, you will see the content on the web as follows:</p>
 <p><img alt="2.3.2" src="/images/2-deploy-local/2.3.2.png"></p>
-<p>Navigate through some other pages to see more results:</p>
+<p><strong>💡 Pro Tip</strong>: Navigate through some other pages to check navigation and display features:</p>
 <p><img alt="2.3.3" src="/images/2-deploy-local/2.3.3.png"></p>
 <p><img alt="2.3.4" src="/images/2-deploy-local/2.3.4.png"></p>
-<p>Ok, this proves that our local system has been successfully deployed. In the next section, we will prepare to deploy to <strong>AWS Cloud</strong> using <strong>Docker</strong>.</p>
+<h4 id="prepare-for-aws-deployment">Prepare for AWS Deployment</h4>
+<p><strong>ℹ️ Information</strong>: The system working well in the local environment shows that you have successfully deployed. In the next section, we will prepare to deploy to <strong>AWS Cloud</strong> using <strong>Amazon ECS</strong> and <strong>Docker</strong> to leverage container scalability and efficient management.</p>
 
 
 
@@ -1616,19 +1620,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1759331036"></script>
-    <script src="/js/perfect-scrollbar.min.js?1759331036"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1759331036"></script>
-    <script src="/js/jquery.sticky.js?1759331036"></script>
-    <script src="/js/featherlight.min.js?1759331036"></script>
-    <script src="/js/highlight.pack.js?1759331036"></script>
+    <script src="/js/clipboard.min.js?1759593890"></script>
+    <script src="/js/perfect-scrollbar.min.js?1759593890"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1759593890"></script>
+    <script src="/js/jquery.sticky.js?1759593890"></script>
+    <script src="/js/featherlight.min.js?1759593890"></script>
+    <script src="/js/highlight.pack.js?1759593890"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1759331036"></script>
-    <script src="/js/learn.js?1759331036"></script>
-    <script src="/js/hugo-learn.js?1759331036"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1759593890"></script>
+    <script src="/js/learn.js?1759593890"></script>
+    <script src="/js/hugo-learn.js?1759593890"></script>
 
-    <link href="/mermaid/mermaid.css?1759331036" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1759331036"></script>
+    <link href="/mermaid/mermaid.css?1759593890" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1759593890"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

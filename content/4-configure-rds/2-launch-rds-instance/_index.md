@@ -26,32 +26,39 @@ This section can be adjusted according to your needs to optimize costs, but ther
 {{% /notice%}}
 
 ![RDS](/images/4-rds/4.2.3.png)
+![RDS](/images/4-rds/4.2.4.png)
 
 - Enter the DB instance name: **`fcj-lab-rds-instance`**
 - Enter the  username: **`admin`**
 - Enter the password: **`letmein12345`**
 
-![RDS](/images/4-rds/4.2.4.png)
-
-- Adjust configurations as needed
-
 ![RDS](/images/4-rds/4.2.5.png)
+![RDS](/images/4-rds/4.2.6.png)
+
+- Configure Instance Size
+- Select **db.t3.micro**
+
+![RDS](/images/4-rds/4.2.7.png)
 
 - Connect to the previously created **VPC**
 - Select the **Subnet** created in the previous section
 
-![RDS](/images/4-rds/4.2.6.png)
+![RDS](/images/4-rds/4.2.8.png)
 
 - Choose the **Security group** created for the DB
 - The following sections can be left as default or configured based on your preferences
 
-![RDS](/images/4-rds/4.2.7.png)
+![RDS](/images/4-rds/4.2.9.png)
 
 - Review all configurations carefully and click **Create**
 
-![RDS](/images/4-rds/4.2.8.png)
+![RDS](/images/4-rds/4.2.10.png)
+
+{{% notice tip%}}
+Currently when creating RDS Instance, AWS provides cost calculation information immediately when creating the instance. This helps you easily manage costs.
+{{% /notice%}}
 
 - Complete the creation of the **DB instance**, it will take about 15 minutes to become **Available**
 
-![RDS](/images/4-rds/4.2.9.png)
+![RDS](/images/4-rds/4.2.11.png)
 
